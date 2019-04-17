@@ -1,0 +1,15 @@
+.round-button {
+  background-color: rgba(56, 75, 0, 0.8);
+}
+
+.left-col,
+.right-col {
+  .round-button {
+    transition: all $anim-time ease-in-out;
+    border: 0 solid white;
+  }
+
+  &:hover .round-button {
+    border: 6px solid white;
+  }
+}
