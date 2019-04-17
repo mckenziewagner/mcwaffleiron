@@ -1,8 +1,9 @@
 recipe: pantheon
+name: mcwaffleiron
 config:
-  framework: PANTHEON_SITE_FRAMEWORK
-  id: PANTHEON_SITE_ID
-  site: PANTHEON_SITE_MACHINE_NAME
+  framework: wordpress
+  id: 56d09d2c-a0aa-427c-ac22-279729a60f8c
+  site: mcwaffleiron
   xdebug: false
   index: true
   edge: true

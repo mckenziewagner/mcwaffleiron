@@ -1,5 +1,9 @@
 *** Changelog ***
 
+= 1.6.11 - 2019-04-17 =
+* Fix/Performance - Prevent db option updates during bootstrap on each page load
+* Tweak = WC 3.6 compatibiliy.
+
 = 1.6.10 - 2019-03-05 =
 * Fix - Use only product attributes when adding to cart
 
