@@ -1,0 +1,9 @@
+recipe: pantheon
+config:
+  framework: PANTHEON_SITE_FRAMEWORK
+  id: PANTHEON_SITE_ID
+  site: PANTHEON_SITE_MACHINE_NAME
+  xdebug: false
+  index: true
+  edge: true
+  cache: true
