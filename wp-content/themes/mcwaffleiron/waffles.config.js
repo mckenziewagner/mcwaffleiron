@@ -1,10 +1,10 @@
 module.exports = () => ({
   env        : 'development',
-  siteUrl    : 'http://dev-cec-6412.pantheonsite.io',
+  siteUrl    : 'http://dev-mcwaffleiron.pantheonsite.io',
   debug      : false,
   open       : true,
   staticDirs : ['./'],
-  proxy      : 'http://localhost:32775',
+  proxy      : 'http://mcwaffleiron.lndo.site',
   //proxy      : 'http://dev-cec-6412.pantheonsite.io',
   styles     : './src/styles/index.scss',
   styleVars  : require('./src/styles/variables.js'),
