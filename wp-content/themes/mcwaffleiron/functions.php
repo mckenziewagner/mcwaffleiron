@@ -7,6 +7,9 @@
  * @package waffleiron
  */
 
+// this works but converting all old fields into block types that can be used
+//require_once('acf-fields.php');
+
 if ( ! function_exists( 'waffleiron_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -68,7 +71,7 @@ if ( ! function_exists( 'waffleiron_setup' ) ) :
 		) ) );
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+	//	add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
 		 * Add support for core custom logo.
@@ -265,3 +268,33 @@ function add_async_attribute($tag, $handle) {
    return $tag;
 }
 add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
+add_action('acf/init', 'my_acf_init');
+function my_acf_init() {
+	
+	// check function exists
+	if( function_exists('acf_register_block') ) {
+		
+		// register a testimonial block
+		acf_register_block(array(
+			'name'				=> 'testimonial',
+			'title'				=> __('Testimonial'),
+			'description'		=> __('A custom testimonial block.'),
+			'render_callback'	=> 'my_acf_block_render_callback',
+			'category'			=> 'formatting',
+			'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'testimonial', 'quote' ),
+		));
+	}
+}
+
+function my_acf_block_render_callback( $block ) {
+	
+	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
+	$slug = str_replace('acf/', '', $block['name']);
+	
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists( get_theme_file_path("/template-parts/block/content-{$slug}.php") ) ) {
+		include( get_theme_file_path("/template-parts/block/content-{$slug}.php") );
+	}
+}
