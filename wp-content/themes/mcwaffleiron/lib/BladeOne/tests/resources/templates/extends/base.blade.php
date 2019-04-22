@@ -1,3 +1,0 @@
-Base...
-
-@yield('from_child')
