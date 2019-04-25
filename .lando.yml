@@ -1,9 +1,9 @@
 recipe: pantheon
-name: mcwaffleiron
+name: classic-events
 config:
   framework: wordpress
-  id: 56d09d2c-a0aa-427c-ac22-279729a60f8c
-  site: mcwaffleiron
+  id: 811e939f-3a84-4065-a3a6-6fa28a03de2a
+  site: classic-events
   xdebug: false
   index: true
   edge: true
