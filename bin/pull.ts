@@ -1,81 +1,46 @@
 #!/usr/bin/env deno --allow-run
 
-(async () => {
-  // start
+import {
+  pull,
+  cd,
+  remove,
+  backup,
+  get,
+  include
+} from `./util.ts`
 
-  const args = [...Deno.args].slice(1);
+(async () => { // ------------------------------------------
 
-  const database = async (i) => {
-    const arg = args[i];
-    const nextArg = args[i++];
-    return {
-      removeInit: Deno.run({
-        args: [
-          'lando', 'ssh', '-c',
-          'rm -f /app/database.sql.gz',
-        ]
-      }),
-      backup: Deno.run({
-        args: [
-          'lando',
-          'terminus',
-          'backup:create',
-          nextArg,
-          '--element=db',
-        ]
-      }),
-      getBackup: Deno.run({
-        args: [
-          'lando',
-          'terminus',
-          'backup:get',
-          nextArg,
-          '--element=db',
-          '--to=/app/database.sql.gz',
-        ]
-      }),
-      import:  Deno.run({
-        args: [
-          'lando', 'db-import',
-          'database.sql.gz',
-        ]
-      }),
-      removeOld: Deno.run({
-        args: [
-          'lando', 'ssh', '-c',
-          'rm -f /app/database.sql.gz',
-        ]
-      }),
-    }
+  // peace out early if no args
+  const args = [...Deno.args].slice(1)
+  if (args.length === 0) {
+    console.log(`\"Not using nothin\" - Townes Van Zandt`)
+    return
   }
 
-  let oldSite = '';
-  let newSite = '';
-
-  for (let i = 0; i < args.length; i++) {
-    switch (arg) {
-      // old site
-      case '--oldSite' || '-o':
-        const current = args[i];
-        const next = args[i++];
-        oldSite = next;
-        break;
-
-      // new site
-      case '--site' || '-s':
-        const current = args[i];
-        const next = args[i++];
-        newSite = next;
-        break;
-
-      // default
-      case default:
-        console.log('no input');
-        break;
+  // main function calling commands
+  const main = async () => {
+    let site = ''
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] === '-s') {
+        site = args[++i]
+      }
     }
+
+    const REMOVE = await remove()
+    const { code } = await REMOVE.status()
+
+    if (code === 0) {
+      const rawOutput = await REMOVE.output()
+      console.log(rawOutput, `fuckin a`)
+    } else {
+      const rawError = await REMOVE.stderrOutput()
+      const errorString = new TextDecoder().decode(rawError)
+      console.log(errorString, `fuckin a`)
+    }
+
+    Deno.exit(code)
   }
+  main()
 
-  console.log(oldSite, newSite);
-
-  // end
-})();
+})() //-----------------------------------------------------
