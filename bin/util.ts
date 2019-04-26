@@ -1,30 +1,34 @@
 //
-// deno run commands for scripting prolly not the best idea but im learning deno sooo
+// deno run commands for scripting prolly not the
+// best idea but im learning deno sooo
 
-export const cd = async path => await Deno.run({ args: ['cd', '../'] })
-export const removeOldDb = async backupName => await Deno.run({ args: ['lando', 'ssh', '-c', `rm -f /app/${backupName}`] })
-export const backupDb = async siteEnv => await Deno.run({ args: ['lando', 'terminus', 'backup:create', siteEnv, '--element=db'] })
-export const getDb = async siteEnv => await Deno.run({ args: ['lando', 'terminus', 'backup:get', siteEnv, '--element=db', '--to=/app/database.sql.gz'] })
-export const importDb = async () => await Deno.run({ args: ['lando', 'db-import', 'database.sql.gz'] })
+// all dem commands @TODO files (uploads)
+export const cd = async path => await Deno.run({ args: [`cd`, path], stdout: `piped`, stderr: `piped` })
+export const remove = async (backupName?: string) => await Deno.run({ args: [`lando`, `ssh`, `-c`, `rm -f /app/${backupName}`], stdout: `piped`, stderr: `piped` })
+export const backup = async siteEnv => await Deno.run({ args: [`lando`, `terminus`, `backup:create`, siteEnv, `--element=db`], stdout: `piped`, stderr: `piped` })
+export const get = async siteEnv => await Deno.run({ args: [`lando`, `terminus`, `backup:get`, siteEnv, `--element=db`, `--to=/app/database.sql.gz`], stdout: `piped`, stderr: `piped` })
+export const include = async (backupName?: string) => await Deno.run({ args: [`lando`, `db-import`, backupName], stdout: `piped`, stderr: `piped` })
 
-// pull in database and @TODO files (uploads)
+// pull in pantheon site from upstream and use
+// upstreams default db and files
 export const pull = async ({
   siteEnv = `mcwaffleiron.dev`,
   path = `../`,
   backupName = `database.sql.gz`
 }) => {
   const _cd = await cd(path)
-  const _removeOldDb = await removeOldDb(backupName)
-  const _backupDb = await backupDb(siteEnv)
-  const _getDb = await getDb(siteEnv)
-  const _importDb = await getDb(siteEnv)
-  const _removeOldDbAgain = await removeOldDb(backupName)
+  const _removeInit = await remove(backupName)
+  const _backup = await backup(siteEnv)
+  const _get = await get(siteEnv)
+  const _include = await include(backupName)
+  const _removeEnd = await remove(backupName)
+
   return {
     _cd,
-    _removeOldDb,
-    _backupDb,
-    _getDb,
-    _importDb,
-    _removeOldDbAgain,
+    _removeInit,
+    _backup,
+    _get,
+    _include,
+    _removeEnd,
   }
 }

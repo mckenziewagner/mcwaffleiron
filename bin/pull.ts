@@ -3,10 +3,10 @@
 import {
   pull,
   cd,
-  removeOldDb,
-  backupDb,
-  getDb,
-  importDb
+  remove,
+  backup,
+  get,
+  include
 } from './util.ts'
 
 (async () => { // ------------------------------------------
@@ -27,7 +27,7 @@ import {
       }
     }
 
-    const CD = await removeOldDb()
+    const CD = await remove()
     console.log(await CD.status())
 
     //const pullOut = pull(site)
