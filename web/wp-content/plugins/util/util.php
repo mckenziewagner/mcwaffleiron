@@ -67,14 +67,14 @@ add_filter('menu_order', function($menu_ord) {
 	'edit.php',
 	'edit.php?post_type=page',
 	'edit.php?post_type=product',
-	'seperatorLast',
-	'themes.php',
-	'plugins.php',
-	'users.php',
-	'tools.php',
-	'options-general.php',
-	'admin.php?page=acf-options',
-	'edit.php?post_type=shop_order',
+	/* 'seperatorLast', */
+	/* 'themes.php', */
+	/* 'plugins.php', */
+	/* 'users.php', */
+	/* 'tools.php', */
+	/* 'options-general.php', */
+	/* 'admin.php?page=acf-options', */
+	/* 'edit.php?post_type=shop_order', */
   );
 
   /* return array( */
