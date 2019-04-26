@@ -7,7 +7,7 @@ import {
   backup,
   get,
   include
-} from './util.ts'
+} from `./util.ts`
 
 (async () => { // ------------------------------------------
 
@@ -27,10 +27,19 @@ import {
       }
     }
 
-    const CD = await remove()
-    console.log(await CD.status())
+    const REMOVE = await remove()
+    const { code } = await REMOVE.status()
 
-    //const pullOut = pull(site)
+    if (code === 0) {
+      const rawOutput = await REMOVE.output()
+      console.log(rawOutput, `fuckin a`)
+    } else {
+      const rawError = await REMOVE.stderrOutput()
+      const errorString = new TextDecoder().decode(rawError)
+      console.log(errorString, `fuckin a`)
+    }
+
+    Deno.exit(code)
   }
   main()
 
