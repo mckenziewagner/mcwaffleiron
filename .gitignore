@@ -103,3 +103,7 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+.lando.local.yml
+.lando.*.yml
+*/.lando.*.yml
