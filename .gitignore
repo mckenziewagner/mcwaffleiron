@@ -105,5 +105,3 @@ Thumbs.db
 .sass-cache
 
 .lando.local.yml
-.lando.*.yml
-*/.lando.*.yml
