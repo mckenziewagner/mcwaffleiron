@@ -1,13 +1,13 @@
 <?php
 /**
- * waffleiron functions and definitions
+ * mcwaffleiron functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package waffleiron
+ * @package mcwaffleiron
  */
 
-if ( ! function_exists( 'waffleiron_setup' ) ) :
+if ( ! function_exists( 'mcwaffleiron_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'waffleiron_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function waffleiron_setup() {
+	function mcwaffleiron_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on waffleiron, use a find and replace
-		 * to change 'waffleiron' to the name of your theme in all the template files.
+		 * If you're building a theme based on mcwaffleiron, use a find and replace
+		 * to change 'mcwaffleiron' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'waffleiron', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'mcwaffleiron', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -62,7 +62,7 @@ if ( ! function_exists( 'waffleiron_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'waffleiron_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'mcwaffleiron_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -83,7 +83,7 @@ if ( ! function_exists( 'waffleiron_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'waffleiron_setup' );
+add_action( 'after_setup_theme', 'mcwaffleiron_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -92,31 +92,31 @@ add_action( 'after_setup_theme', 'waffleiron_setup' );
  *
  * @global int $content_width
  */
-function waffleiron_content_width() {
+function mcwaffleiron_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'waffleiron_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'mcwaffleiron_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'waffleiron_content_width', 0 );
+add_action( 'after_setup_theme', 'mcwaffleiron_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function waffleiron_widgets_init() {
+function mcwaffleiron_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'waffleiron' ),
+		'name'          => esc_html__( 'Sidebar', 'mcwaffleiron' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'waffleiron' ),
+		'description'   => esc_html__( 'Add widgets here.', 'mcwaffleiron' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'waffleiron_widgets_init' );
+add_action( 'widgets_init', 'mcwaffleiron_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -126,8 +126,8 @@ add_action( 'widgets_init', 'waffleiron_widgets_init' );
 //
 // enqueue scripts/styles
 add_action( 'wp_enqueue_scripts', function() {
-  wp_enqueue_script('waffleiron-script', get_template_directory_uri() . '/public/bundle.js');
-	wp_enqueue_style('waffleiron-style', get_template_directory_uri() . '/public/bundle.css');
+  wp_enqueue_script('mcwaffleiron-script', get_template_directory_uri() . '/public/bundle.js');
+	wp_enqueue_style('mcwaffleiron-style', get_template_directory_uri() . '/public/bundle.css');
 });
 
 //
@@ -221,9 +221,9 @@ add_filter( 'wp_get_nav_menu_items', function($items, $menu) {
   if ($menu->slug == 'primary-navigation') {
     foreach ($items as $item) {
       if ($item->title == 'Events') {
-        $event_types = get_terms('event_types');
+        $event_types = (array)get_terms('event_types');
         $reversed = array_reverse($event_types);
-        $pos = 101;
+        $pos = 1;
         foreach ($reversed as $type) {
           $items[] = _custom_nav_menu_item($type->name, '/events/' . $type->slug, $pos++, $item->ID);
         }
@@ -255,7 +255,7 @@ function hex_to_rgba($hex, $alpha = false) {
 
 function add_async_attribute($tag, $handle) {
    // add script handles to the array below
-   $scripts_to_async = array('waffleiron-script');
+   $scripts_to_async = array('mcwaffleiron-script');
    
    foreach($scripts_to_async as $async_script) {
       if ($async_script === $handle) {

@@ -2,6 +2,8 @@
 // deno run commands for scripting prolly not the
 // best idea but im learning deno sooo
 
+import { yellow, bold } from 'https://deno.land/std/colors/mod.ts'
+
 // all dem commands @TODO files (uploads)
 export const cd = async path => await Deno.run({ args: [`cd`, path], stdout: `piped`, stderr: `piped` })
 export const remove = async (backupName?: string) => await Deno.run({ args: [`lando`, `ssh`, `-c`, `rm -f /app/${backupName}`], stdout: `piped`, stderr: `piped` })
@@ -30,5 +32,12 @@ export const pull = async ({
     _get,
     _include,
     _removeEnd,
+  }
+}
+
+// more utilities
+export const logger = options => {
+  if (options === undefined || options === null || !Object.keys(options).length) {
+    return console.log(yellow(bold(`\"Not using nothin\" - Townes Van Zandt`)))
   }
 }

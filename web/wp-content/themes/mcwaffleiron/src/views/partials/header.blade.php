@@ -4,7 +4,7 @@
     <div class="flex flex-row items-center h-full">
 
       <a href="/">
-        <img class="w-48 sm:w-64" src="/wp-content/themes/waffleiron-theme/src/images/logo-horiz-new.png" alt="Classic Events Catering Horizontal Logo" title="Classic Events Catering Horizontal Logo">
+        <img class="w-48 sm:w-64" src="/wp-content/themes/mcwaffleiron/src/images/logo-horiz-new.png" alt="Classic Events Catering Horizontal Logo" title="Classic Events Catering Horizontal Logo">
       </a>
 
       <div class="xl:inline-block hidden ml-auto">

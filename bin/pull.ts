@@ -6,15 +6,16 @@ import {
   remove,
   backup,
   get,
-  include
-} from `./util.ts`
+  include,
+  log,
+} from `./mod.ts`
 
 (async () => { // ------------------------------------------
 
   // peace out early if no args
   const args = [...Deno.args].slice(1)
   if (args.length === 0) {
-    console.log(`\"Not using nothin\" - Townes Van Zandt`)
+    logger()
     return
   }
 
