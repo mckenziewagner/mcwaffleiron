@@ -1,18 +1,18 @@
-=== Premmerce WooCommerce Permalink Manager Pro ===
+=== Premmerce Permalink Manager for WooCommerce ===
 Contributors: premmerce
 Tags: woocommerce url, remove product, remove product_category, woocommerce permalink, woocommerce, woocommerce seo
 Requires at least: 4.8
 Tested up to: 5.1
-Stable tag: 2.1.8
+Stable tag: 2.1.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Premmerce WooCommerce Permalink Manager allows you to change WooCommerce permalink and remove product and product_category slugs from the URL.
+Premmerce Permalink Manager for WooCommerce allows you to change WooCommerce permalink and remove product and product_category slugs from the URL.
 
 == Description ==
 
-Premmerce WooCommerce Permalink Manager is developed to improve the current WooCommerce URL configuration features and provide your store with  better display options and additional SEO capabilities to adhere to [WooCommerce SEO Audit](https://premmerce.com/complete-woocommerce-seo-guide-tips/) standards.
+Premmerce Permalink Manager for WooCommerce is developed to improve the current WooCommerce URL configuration features and provide your store with  better display options and additional SEO capabilities to adhere to [WooCommerce SEO Audit](https://premmerce.com/complete-woocommerce-seo-guide-tips/) standards.
 
 [youtube https://www.youtube.com/watch?v=-TMpzsSPiMU]
 
@@ -33,9 +33,9 @@ Premmerce WooCommerce Permalink Manager is developed to improve the current WooC
 * The ability to choose a main category to generate a product URL.
 * Automatic adding of the ‘rel=canonical’ attribute to duplicate pages to improve SEO.
 
-= Additional features available in Premmerce WooCommerce Permalink Manager Premium only: =
+= Additional features available in Premmerce Permalink Manager for WooCommerce Premium only: =
 
-[Premmerce WooCommerce Permalink Manager Premium](https://premmerce.com/woocommerce-permalink-manager/)
+[Premmerce Permalink Manager for WooCommerce Premium](https://premmerce.com/woocommerce-permalink-manager/)
 
 * The ability to remove the base from the product tags URL.
 * Automatic adding of 301 redirects to duplicated pages to improve SEO and site navigation.
@@ -69,10 +69,10 @@ We have tested how the plugin works with the basic WooCommerce kit and the stand
 The plugin works perfectly with the Yoast SEO plugin installed. No link duplicates are generated. All similar URLs are automatically tagged as canonical in accordance with the search engines’ recommendations.
 
 = Documentation =
-Full documentation is available here: [Premmerce WooCommerce Permalink Manager](https://premmerce.com/woocommerce-permalink-manager-remove-shop-product-product-category-url/)
+Full documentation is available here: [Premmerce Permalink Manager for WooCommerce](https://premmerce.com/woocommerce-permalink-manager-remove-shop-product-product-category-url/)
 
 = Installation Instructions =
-Go to Plugins -> Add New section from your admin account and search for Premmerce WooCommerce Permalink Manager.
+Go to Plugins -> Add New section from your admin account and search for Premmerce Permalink Manager for WooCommerce.
 
 You can also install this plugin manually:
 * Download the plugin’s ZIP archive and unzip it.
@@ -223,3 +223,8 @@ Release Date: Mar 12, 2019
 
 * Fixed category slug translated with WPML
 
+= 2.1.9 =
+
+Release Date: Apr 22, 2019
+
+* Updated WooCommerce compatibility version to 3.6

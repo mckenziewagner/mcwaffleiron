@@ -1,0 +1,24 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {},
+  "extra": {
+    "installer-paths": {
+      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "scripts": {
+    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "post-install-cmd": [
+      "@remove-git-submodules"
+    ],
+    "post-update-cmd": [
+      "@remove-git-submodules"
+    ]
+  }
+}

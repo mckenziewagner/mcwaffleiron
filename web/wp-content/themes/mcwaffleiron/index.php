@@ -15,7 +15,7 @@ $cache = wp_upload_dir()['basedir'] . '/cache'; // it uses the folder /cache to 
 
 // The nulls indicates the default folders. By drfault it's /views and /compiles
 // \eftec\bladeone\BladeOne::MODE_DEBUG is useful because it indicates the correct file if the template fails to load.  
-//  You must disable it in production. 
+//  You must disable it in production.
 $blade = new \eftec\bladeone\BladeOne($views,$cache,\eftec\bladeone\BladeOne::MODE_AUTO);
 
 // mock template heirarchy
@@ -51,7 +51,7 @@ if ($template === 'single') {
 if ($template === 'product-cat') {
   $template = 'products';
 }
-//echo $template;
+echo $template;
 
 // render template
 echo $blade->run($template);

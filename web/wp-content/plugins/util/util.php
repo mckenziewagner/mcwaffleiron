@@ -56,7 +56,18 @@ if (function_exists('acf_add_options_page')) {
 add_action('admin_menu', function() {
   //remove_menu_page('edit.php');
   remove_menu_page('edit-comments.php');
+  remove_menu_page('edit-comments.php');
 });
+
+// change slug
+/* add_filter( 'register_post_type_args', function ( $args, $post_type ) { */
+/*     if ( 'menu' === $post_type ) { */
+/* 		echo '<script>console.log(' . json_encode($post_type) . ',' . json_encode($args) . ')</script>'; */
+/*         $args['rewrite']['slug'] = 'menu'; */
+/*     } */
+
+/*     return $args; */
+/* }, 10, 2 ); */
 
 // reorder the menu
 add_filter('menu_order', function($menu_ord) {
