@@ -51,7 +51,7 @@ if ($template === 'single') {
 if ($template === 'product-cat') {
   $template = 'products';
 }
-echo $template;
+//echo $template;
 
 // render template
 echo $blade->run($template);
