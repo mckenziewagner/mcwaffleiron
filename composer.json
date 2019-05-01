@@ -30,7 +30,8 @@
     "wpackagist-plugin/woo-permalink-manager": "^2.1",
     "wpackagist-plugin/classic-editor": "^1.4",
     "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
-    "anthonybudd/wp_route": "@dev"
+    "anthonybudd/wp_route": "@dev",
+    "eftec/bladeone": "^3.23"
   },
   "extra": {
     "installer-paths": {
