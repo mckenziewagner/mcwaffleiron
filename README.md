@@ -1,3 +1,3 @@
-![](https://media3.giphy.com/media/NSY5PMSdamewjHkt14/200w.webp)
+![](https://media3.giphy.com/media/103liSxCY1NpLO/giphy-downsized.webp)
 
-### Upstreamlining dynamic websites for McKenzie Wagner.
+## Upstreamlining dynamic websites for McKenzie Wagner.
