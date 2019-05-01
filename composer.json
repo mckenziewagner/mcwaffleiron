@@ -5,7 +5,9 @@
       "url": "https://wpackagist.org"
     }
   ],
-  "require": {},
+  "require": {
+    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0"
+  },
   "extra": {
     "installer-paths": {
       "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],

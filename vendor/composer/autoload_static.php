@@ -79,6 +79,7 @@ class ComposerStaticInit6d73a3d97fd6b0e1fc64d705ed065cd8
             'Consolidation\\Config\\' => 21,
             'Consolidation\\AnnotatedCommand\\' => 31,
             'Composer\\Semver\\' => 16,
+            'Composer\\Installers\\' => 20,
         ),
     );
 
@@ -218,6 +219,10 @@ class ComposerStaticInit6d73a3d97fd6b0e1fc64d705ed065cd8
         'Composer\\Semver\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
+        ),
+        'Composer\\Installers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
     );
 
