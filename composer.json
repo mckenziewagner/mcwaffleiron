@@ -3,10 +3,27 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.7.13",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "philippbaschke/acf-pro-installer": "^1.0",
+          "composer/installers": "^1.0"
+        }
+      }
     }
   ],
   "require": {
-    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0"
+    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
+    "philippbaschke/acf-pro-installer": "^1.0"
   },
   "extra": {
     "installer-paths": {
