@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6d7e98d3a295534ddf3fa079e7bb4eb",
+    "content-hash": "9f7f10b54a3c1e5fb9107d425090f47a",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -18,6 +18,35 @@
                 "philippbaschke/acf-pro-installer": "^1.0"
             },
             "type": "wordpress-plugin"
+        },
+        {
+            "name": "anthonybudd/wp_route",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anthonybudd/WP_Route.git",
+                "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anthonybudd/WP_Route/zipball/0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+                "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/WP_Route.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anthony Budd",
+                    "email": "anthonybudd94@gmail.com"
+                }
+            ],
+            "time": "2018-03-13T16:10:26+00:00"
         },
         {
             "name": "composer/installers",
@@ -416,7 +445,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "anthonybudd/wp_route": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
