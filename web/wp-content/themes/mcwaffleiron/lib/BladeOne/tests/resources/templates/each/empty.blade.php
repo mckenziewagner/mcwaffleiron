@@ -1,1 +1,0 @@
-@each('each.item', $list, 'list_item', 'each.empty_item')

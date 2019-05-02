@@ -31,7 +31,8 @@
     "wpackagist-plugin/classic-editor": "^1.4",
     "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
     "anthonybudd/wp_route": "@dev",
-    "eftec/bladeone": "^3.23"
+    "eftec/bladeone": "^3.23",
+    "upstatement/routes": "^0.5.0"
   },
   "extra": {
     "installer-paths": {

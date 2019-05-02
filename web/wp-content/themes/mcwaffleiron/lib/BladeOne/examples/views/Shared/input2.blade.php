@@ -1,1 +1,0 @@
-<input type="{{ !isset($type)? 'text':$type }}" value="{{ !isset($value)? '':$value }}" style="background-color: green;">
