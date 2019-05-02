@@ -265,3 +265,4 @@ function add_async_attribute($tag, $handle) {
    return $tag;
 }
 add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+require_once('lib/routes.php');

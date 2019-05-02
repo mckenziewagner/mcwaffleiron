@@ -2,4 +2,4 @@
 
 //
 // include your routes here
-include('lib/routes.php');
+//include('lib/.php');

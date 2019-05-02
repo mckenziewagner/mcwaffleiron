@@ -2,6 +2,8 @@
 
 @section('content')
 
+  {!! var_dump($data) !!}
+
   @if (is_front_page())
     @if (get_field('gallery'))
       @include('partials.home-header')
