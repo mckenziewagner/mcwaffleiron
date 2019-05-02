@@ -694,7 +694,6 @@ function acf_render_field_wrap( $field, $element = 'div', $instruction = 'label'
 	// Todo: Move from $wrapper out into $field.
 	$width = acf_extract_var( $wrapper, 'width' );
 	if( $width ) {
-		$width = acf_numval( $width );
 		if( $element !== 'tr' && $element !== 'td' ) {
 			$wrapper['data-width'] = $width;
 			$wrapper['style'] .= " width:{$width}%;";
@@ -1331,7 +1330,7 @@ function acf_get_field_ancestors( $field ) {
 	$ancestors = array();
 	
 	// Loop over parents.
-	while( $field['parent'] && $field = acf_get_field($field['parent']) ) {
+	while( $field = acf_get_field($field['parent']) ) {
 		$ancestors[] = $field['ID'] ? $field['ID'] : $field['key'];
 	}
 	

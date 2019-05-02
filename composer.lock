@@ -1,0 +1,615 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "70b090f1961cc3d5a5af379fdfa921f3",
+    "packages": [
+        {
+            "name": "advanced-custom-fields/advanced-custom-fields-pro",
+            "version": "5.7.13",
+            "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.7.13"
+            },
+            "require": {
+                "composer/installers": "^1.0",
+                "philippbaschke/acf-pro-installer": "^1.0"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "altorouter/altorouter",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dannyvankooten/AltoRouter.git",
+                "reference": "39c50092470128c12284d332bb57f306bb5b58e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dannyvankooten/AltoRouter/zipball/39c50092470128c12284d332bb57f306bb5b58e4",
+                "reference": "39c50092470128c12284d332bb57f306bb5b58e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "AltoRouter.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danny van Kooten",
+                    "email": "dannyvankooten@gmail.com",
+                    "homepage": "http://dannyvankooten.com/"
+                },
+                {
+                    "name": "Koen Punt",
+                    "homepage": "https://github.com/koenpunt"
+                },
+                {
+                    "name": "niahoo",
+                    "homepage": "https://github.com/niahoo"
+                }
+            ],
+            "description": "A lightning fast router for PHP",
+            "homepage": "https://github.com/dannyvankooten/AltoRouter",
+            "keywords": [
+                "lightweight",
+                "router",
+                "routing"
+            ],
+            "time": "2015-11-30T00:47:43+00:00"
+        },
+        {
+            "name": "anthonybudd/wp_route",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anthonybudd/WP_Route.git",
+                "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anthonybudd/WP_Route/zipball/0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+                "reference": "0fbb2c2a7c754acaee429696e30fe8cc8284de88",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/WP_Route.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anthony Budd",
+                    "email": "anthonybudd94@gmail.com"
+                }
+            ],
+            "time": "2018-03-13T16:10:26+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "eftec/bladeone",
+            "version": "3.23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EFTEC/BladeOne.git",
+                "reference": "82f61a126dfff675a0f3956cda7cf6083485c5ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/82f61a126dfff675a0f3956cda7cf6083485c5ea",
+                "reference": "82f61a126dfff675a0f3956cda7cf6083485c5ea",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.23-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "eftec\\bladeone\\": "lib/",
+                    "eftec\\tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jorge Patricio Castro Castillo",
+                    "email": "jcastro@eftec.cl"
+                }
+            ],
+            "description": "The standalone version Blade Template Engine from Laravel in a single php file",
+            "homepage": "https://github.com/EFTEC/BladeOne",
+            "keywords": [
+                "blade",
+                "php",
+                "template",
+                "templating",
+                "view"
+            ],
+            "time": "2019-04-23T18:52:26+00:00"
+        },
+        {
+            "name": "philippbaschke/acf-pro-installer",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhilippBaschke/acf-pro-installer.git",
+                "reference": "f18e537183958159ef5f6cb1f5b684f59d55f3eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhilippBaschke/acf-pro-installer/zipball/f18e537183958159ef5f6cb1f5b684f59d55f3eb",
+                "reference": "f18e537183958159ef5f6cb1f5b684f59d55f3eb",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=5.5",
+                "vlucas/phpdotenv": "^2.2"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*",
+                "phpunit/phpunit": "4.8.*",
+                "satooshi/php-coveralls": "1.*",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PhilippBaschke\\ACFProInstaller\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhilippBaschke\\ACFProInstaller\\": "src/ACFProInstaller"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp Baschke",
+                    "email": "philipp@baschke.com"
+                }
+            ],
+            "description": "An install helper for Advanced Custom Fields PRO",
+            "keywords": [
+                "acf",
+                "composer",
+                "env",
+                "plugin",
+                "pro",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2016-07-20T10:19:36+00:00"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-ctype.git",
+                "reference": "82ebae02209c21113908c229e9883c419720738a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
+                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+            "name": "upstatement/routes",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Upstatement/routes.git",
+                "reference": "3267d28be0a73f197087d58384e1a358d85671b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Upstatement/routes/zipball/3267d28be0a73f197087d58384e1a358d85671b6",
+                "reference": "3267d28be0a73f197087d58384e1a358d85671b6",
+                "shasum": ""
+            },
+            "require": {
+                "altorouter/altorouter": "^1.1.0",
+                "composer/installers": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master",
+                "wp-cli/wp-cli": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Routes": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jared Novack",
+                    "email": "jared@upstatement.com",
+                    "homepage": "http://upstatement.com"
+                }
+            ],
+            "description": "Manage rewrites and routes in WordPress with this dead-simple plugin",
+            "homepage": "http://routes.upstatement.com",
+            "keywords": [
+                "redirects",
+                "rewrite",
+                "routes",
+                "routing"
+            ],
+            "time": "2018-12-04T01:13:41+00:00"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
+                "reference": "2a7dcf7e3e02dc5e701004e51a6f304b713107d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-ctype": "^1.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2019-01-29T11:11:52+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/acf-to-rest-api",
+            "version": "3.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/acf-to-rest-api/",
+                "reference": "tags/3.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/acf-to-rest-api.3.1.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/acf-to-rest-api/"
+        },
+        {
+            "name": "wpackagist-plugin/classic-editor",
+            "version": "1.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/classic-editor/",
+                "reference": "tags/1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.4.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/classic-editor/"
+        },
+        {
+            "name": "wpackagist-plugin/pantheon-advanced-page-cache",
+            "version": "0.3.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/pantheon-advanced-page-cache/",
+                "reference": "tags/0.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/pantheon-advanced-page-cache.0.3.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/pantheon-advanced-page-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/woo-permalink-manager",
+            "version": "2.1.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woo-permalink-manager/",
+                "reference": "tags/2.1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woo-permalink-manager.2.1.9.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woo-permalink-manager/"
+        },
+        {
+            "name": "wpackagist-plugin/woocommerce",
+            "version": "3.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce/",
+                "reference": "tags/3.6.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.3.6.2.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-native-php-sessions",
+            "version": "0.7.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-native-php-sessions/",
+                "reference": "tags/0.7.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-native-php-sessions.0.7.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-native-php-sessions/"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "anthonybudd/wp_route": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

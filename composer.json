@@ -1,0 +1,52 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.7.13",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "philippbaschke/acf-pro-installer": "^1.0",
+          "composer/installers": "^1.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
+    "philippbaschke/acf-pro-installer": "^1.0",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
+    "wpackagist-plugin/woocommerce": "^3.6",
+    "wpackagist-plugin/acf-to-rest-api": "^3.1",
+    "wpackagist-plugin/woo-permalink-manager": "^2.1",
+    "wpackagist-plugin/classic-editor": "^1.4",
+    "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
+    "anthonybudd/wp_route": "@dev",
+    "eftec/bladeone": "^3.23",
+    "upstatement/routes": "^0.5.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "scripts": {
+    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "post-install-cmd": [
+      "@remove-git-submodules"
+    ],
+    "post-update-cmd": [
+      "@remove-git-submodules"
+    ]
+  }
+}

@@ -48,6 +48,17 @@ function menu_init() {
 }
 add_action( 'init', 'menu_init' );
 
+/* // change slug */
+/* add_filter( 'register_post_type_args', function ( $args, $post_type ) { */
+/*     if ( 'menu' === $post_type ) { */
+/* 		echo '<script>console.log(' . json_encode($post_type) . ',' . json_encode($args) . ')</script>'; */
+/*         $args['rewrite']['slug'] = 'menu'; */
+/*     } */
+
+/*     return $args; */
+/* }, 10, 2 ); */
+
+
 /**
  * Sets the post updated messages for the `menu` post type.
  *

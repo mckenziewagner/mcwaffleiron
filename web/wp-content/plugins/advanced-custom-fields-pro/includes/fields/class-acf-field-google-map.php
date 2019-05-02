@@ -294,15 +294,18 @@ class acf_field_google_map extends acf_field {
 	*/
 	
 	function update_value( $value, $post_id, $field ) {
-		
-		// Check if value is an empty array and convert to empty string.
-		if( empty($value) || empty($value['lat']) ) {
-			$value = "";
+	
+		if( empty($value) || empty($value['lat']) || empty($value['lng']) ) {
+			
+			return false;
+			
 		}
+		
 		
 		// return
 		return $value;
 	}
+   	
 }
 
 

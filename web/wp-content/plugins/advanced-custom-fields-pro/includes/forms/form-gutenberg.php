@@ -45,9 +45,6 @@ class ACF_Form_Gutenberg {
 		
 		// Call edit_form_after_title manually.
 		add_action( 'block_editor_meta_box_hidden_fields', array($this, 'block_editor_meta_box_hidden_fields') );
-		
-		// Cusotmize editor metaboxes.
-		add_filter( 'filter_block_editor_meta_boxes', array($this, 'filter_block_editor_meta_boxes') );
 	}
 	
 	/**
@@ -82,47 +79,35 @@ class ACF_Form_Gutenberg {
 	
 		// Manually call 'edit_form_after_title' function.
 		acf_get_instance('ACF_Form_Post')->edit_form_after_title();
-	}
-	
-	/**
-	 * filter_block_editor_meta_boxes
-	 *
-	 * description
-	 *
-	 * @date	5/4/19
-	 * @since	5.7.14
-	 *
-	 * @param	type $var Description. Default.
-	 * @return	type Description.
-	 */
-	function filter_block_editor_meta_boxes( $wp_meta_boxes ) {
 		
-		// Globals
-		global $current_screen;
-		
-		// Move 'acf_after_title' metaboxes into 'normal' location.
-		if( isset($wp_meta_boxes[ $current_screen->id ][ 'acf_after_title' ]) ) {
+		// Add inline script.
+		?>
+		<script type="text/javascript">
+		(function($) {
 			
-			// Extract locations.
-			$locations = $wp_meta_boxes[ $current_screen->id ];
+			// Wait until prepare.
+			acf.addAction('prepare', function(){
+				
+				// Append custom sortables before normal sortables (within the normal metabox)
+				$('#normal-sortables').before( $('#acf_after_title-sortables') );
+				
+			}, 1);
 			
-			// Ensure normal location exists.
-			if( !isset($locations['normal']) ) $locations['normal'] = array();
-			if( !isset($locations['normal']['high']) ) $locations['normal']['high'] = array();
+			// Wait until load.
+			acf.addAction('load', function(){
+				
+				// Refresh metaboxes to show 'acf_after_title' area.
+				acf.screen.refreshAvailableMetaBoxesPerLocation();
+				
+			}, 1);
 			
-			// Append metaboxes.
-			foreach( $locations['acf_after_title'] as $priority => $meta_boxes ) {
-				$locations['normal']['high'] = array_merge( $meta_boxes, $locations['normal']['high'] );
-			}
+			// Disable unload
+			acf.unload.disable();
 			
-			// Update original data.
-			$wp_meta_boxes[ $current_screen->id ] = $locations;
-			unset( $wp_meta_boxes[ $current_screen->id ]['acf_after_title'] );
-		}
-		
-		// Return
-		return $wp_meta_boxes;
-	}
+		})(jQuery);	
+		</script>
+		<?php
+	}	
 	
 	/**
 	*  acf_validate_save_post
