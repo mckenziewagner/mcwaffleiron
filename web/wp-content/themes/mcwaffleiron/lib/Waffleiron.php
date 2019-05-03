@@ -19,4 +19,10 @@ class Waffleiron {
     $blade = new eftec\bladeone\BladeOne($views,$cache,eftec\bladeone\BladeOne::MODE_AUTO);
     echo $blade->run($template, $data);
   }
+
+  public static function ssr() {
+    $engine = new Spatie\Ssr\Engines\V8();
+    $renderer = new Spatie\Ssr\Renderer($engine);
+    return $renderer;
+  }
 }
