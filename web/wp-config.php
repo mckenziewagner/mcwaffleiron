@@ -34,6 +34,7 @@ if ( isset( $_SERVER['HTTP_USER_AGENT_HTTPS'] ) && $_SERVER['HTTP_USER_AGENT_HTT
 	$scheme = 'https';
 }
 $site_url = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
+echo $site_url;
 define( 'WP_HOME', $site_url );
 define( 'WP_SITEURL', $site_url . 'wp/' );
 
@@ -47,7 +48,7 @@ define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
  * Composer modifications
  */
 // Set root path.
-$root_path = realpath( __DIR__ . '/..' );
+$root_path = realpath( __DIR__ . '/../../..' );
 
 // Include the Composer autoload file.
 require_once( $root_path . '/vendor/autoload.php' );

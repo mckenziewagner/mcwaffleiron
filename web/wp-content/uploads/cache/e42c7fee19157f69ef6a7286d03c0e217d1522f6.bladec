@@ -1,0 +1,4 @@
+<a href="<?php echo static::e($link); ?>" style="background-color: <?php echo static::e($bg_color ?? '#fdb927'); ?>; border-color: <?php echo static::e($shadow_color ?? '#ce66e19'); ?>;box-shadow: 8px 8px 0 <?php echo static::e($shadow_color ?? '#ce66e19'); ?>; color: <?php echo static::e($shadow_color ?? '#ce66e19'); ?>;" class="big-button border-3 block w-full px-3 pt-6 pb-5 text-center cursor-pointer">
+ <h5 style="color: <?php echo static::e($subheading_color); ?>;" class="uppercase font-sans md:text-base text-xs my-0 tracking-huge font-normal"><?php echo static::e($subheading); ?></h5>
+ <h2 style="color: <?php echo static::e($heading_color); ?>;" class="uppercase font-sans font-normal md:text-4xl text-xl my-0 tracking-wider"><?php echo static::e($heading); ?></h2>
+</a>

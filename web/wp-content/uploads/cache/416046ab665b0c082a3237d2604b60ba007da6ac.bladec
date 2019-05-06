@@ -1,0 +1,26 @@
+<?php 
+ $content = isset($content) ? $content : [[
+ 'text'  => get_sub_field('text'),
+ 'image' => get_sub_field('image'),
+ 'style' => get_sub_field('style'),
+ ]];
+ ?>
+<section class="text-content flex flex-col w-full container-sm">
+ <?php $__currentLoopData = $content; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <?php ($flip = $item['style']['flip']); ?>
+ <div class="content w-full flex md:flex-row flex-col md:my-5">
+ <div
+ class="text order-0 font-serif leading-loose md:p<?php echo static::e($flip ? 'l' : 'r'); ?>-10 <?php echo static::e($flip ? 'order-1' : 'order-0'); ?>"
+ style="color: <?php echo static::e($item['style']['text_color']); ?>;"
+ >
+ <?php echo $item['text']; ?>
+
+ </div>
+ <?php if($item['image']): ?>
+ <div class="image md:my-1 mt-5 mb-4">
+ <img class="<?php echo static::e($flip ? 'order-0' : 'order-1'); ?>" src="<?php echo static::e($item['image']['url']); ?>" />
+ </div>
+ <?php endif; ?>
+ </div>          
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+</section>

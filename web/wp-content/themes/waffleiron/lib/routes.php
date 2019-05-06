@@ -1,13 +1,13 @@
 <?php
 
-require_once 'Waffleiron.php';
+//require_once 'Waffleiron.php';
 //use Spatie\Ssr\Renderer;
 //use Spatie\Ssr\Engines;
 
-Routes::map('/', function() {
-  $data = get_page_by_path('home');
-  Waffleiron::run('page', array('data' => $data));
-});
+/* Routes::map('/', function() { */
+/*   $data = get_page_by_path('home'); */
+/*   Waffleiron::run('page', array('data' => $data)); */
+/* }); */
 
 /* Routes::map('/testing', function() { */
 /*  // $data = get_page_by_path('home'); */
