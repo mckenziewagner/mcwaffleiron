@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05c5970dda5cfa451642457a16c70d27",
+    "content-hash": "aad0953432ca3644dce77e3835b54140",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -278,85 +278,6 @@
             "time": "2019-05-05T23:52:40+00:00"
         },
         {
-            "name": "johnpbloch/wordpress",
-            "version": "5.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "b5673ea8f30a518eaf311c90f1d074c44b54e15e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/b5673ea8f30a518eaf311c90f1d074c44b54e15e",
-                "reference": "b5673ea8f30a518eaf311c90f1d074c44b54e15e",
-                "shasum": ""
-            },
-            "require": {
-                "johnpbloch/wordpress-core": "5.1.1",
-                "johnpbloch/wordpress-core-installer": "^1.0",
-                "php": ">=5.3.2"
-            },
-            "type": "package",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms",
-                "wordpress"
-            ],
-            "time": "2019-03-13T00:27:35+00:00"
-        },
-        {
-            "name": "johnpbloch/wordpress-core",
-            "version": "5.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "dba22982e7cb433b68f1b12a0bd4e5851f967010"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/dba22982e7cb433b68f1b12a0bd4e5851f967010",
-                "reference": "dba22982e7cb433b68f1b12a0bd4e5851f967010",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "provide": {
-                "wordpress/core-implementation": "5.1.1"
-            },
-            "type": "wordpress-core",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms",
-                "wordpress"
-            ],
-            "time": "2019-03-13T00:27:30+00:00"
-        },
-        {
             "name": "johnpbloch/wordpress-core-installer",
             "version": "1.0.2",
             "source": {
@@ -404,6 +325,27 @@
                 "wordpress"
             ],
             "time": "2018-11-09T20:10:38+00:00"
+        },
+        {
+            "name": "pantheon-systems/wordpress",
+            "version": "5.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:pantheon-systems/WordPress.git",
+                "reference": "5.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/pantheon-systems/WordPress/archive/5.1.1.zip",
+                "reference": "5.1.1"
+            },
+            "require": {
+                "johnpbloch/wordpress-core-installer": ">=0.1"
+            },
+            "type": "wordpress-core",
+            "extra": {
+                "wordpress-install-dir": "web/wp"
+            }
         },
         {
             "name": "philippbaschke/acf-pro-installer",
