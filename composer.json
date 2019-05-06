@@ -22,6 +22,7 @@
     }
   ],
   "require": {
+    "php": ">=7.0",
     "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
     "philippbaschke/acf-pro-installer": "^1.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
@@ -32,9 +33,12 @@
     "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
     "anthonybudd/wp_route": "@dev",
     "eftec/bladeone": "^3.23",
-    "upstatement/routes": "^0.5.0"
+    "upstatement/routes": "^0.5.0",
+    "spatie/server-side-rendering": "^0.2.5",
+    "johnpbloch/wordpress": "^5.1"
   },
   "extra": {
+    "wordpress-install-dir": "web",
     "installer-paths": {
       "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
