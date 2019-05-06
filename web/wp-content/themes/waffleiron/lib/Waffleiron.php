@@ -1,8 +1,5 @@
 <?php
 
-$vend_path = realpath(__DIR__ . '/../../../../../vendor');
-require_once $vend_path . '/autoload.php';
-
 class Waffleiron {
   public static function run($template, $data = array('data' => array(
     'data0',
@@ -20,9 +17,9 @@ class Waffleiron {
     echo $blade->run($template, $data);
   }
 
-  public static function ssr() {
-    $engine = new Spatie\Ssr\Engines\V8();
-    $renderer = new Spatie\Ssr\Renderer($engine);
-    return $renderer;
-  }
+/*   public static function ssr() { */
+/*     $engine = new Spatie\Ssr\Engines\V8(); */
+/*     $renderer = new Spatie\Ssr\Renderer($engine); */
+/*     return $renderer; */
+/*   } */
 }
