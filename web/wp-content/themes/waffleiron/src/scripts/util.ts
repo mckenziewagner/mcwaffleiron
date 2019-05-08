@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 //
 // global DOM extensions
 declare global {
@@ -8,6 +10,7 @@ declare global {
     filter(predicate: (t: any) => boolean): object
   }
 }
+
 
 //
 // toggleclass like jquery but without it
@@ -44,7 +47,7 @@ export const filterObj = (obj: object): object => {
   return newObj
 };
 
-export const parseNested = obj => {
+export const parseNested = (obj: object) => {
   const newObj = {}
   for (let key in obj) {
     const val = obj[key]
@@ -56,21 +59,19 @@ export const parseNested = obj => {
     }
   }
   return Object.keys(obj).forEach(prop => {
-    if (typeof val !== 'string') return val
-    if (/^[\],:{}\s]*$/.test(val.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-      JSON.parse(val)
+    if (typeof prop !== 'string') return prop
+    if (/^[\],:{}\s]*$/.test(prop.replace(/\\["\\\/bfnrtu]/g, '@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+      JSON.parse(prop)
     }
   })
 }
 
-const fetch = require('isomorphic-fetch')
-const config = require('../../waffles.config.js')()
-const base = `${config.siteUrl}/wp-json/wp/v2`
-export const _fetch = async (path, params, fetchOpts) => {
-  var url = new URL(`${base}${path}`)
+const config:any = require('../../waffles.config.js')()
+const base:string = `${config.siteUrl}/wp-json/wp/v2`
+export const _fetch = async (path:string, params?:object, fetchOpts?:object) => {
+  const url: URL = new URL(`${base}${path}`)
   if (params != null) Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-  //console.log(url)
-  return await fetch(url, fetchOpts || {method: `get`})
-    .then(res => res.json())
-    .catch(ex => console.log("Fetch Exception", ex));
+  return await fetch(url.toString(), fetchOpts || {method: `get`})
+    .then((res:any) => res.json())
+    .catch((err: string) => console.log("Fetch Exception", err));
 };

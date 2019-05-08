@@ -1,12 +1,12 @@
-import { filterObj, parseNested, _fetch } from './util.ts'
-import { tns } from 'tiny-slider/src/tiny-slider'
-import config from '../../waffles.config.js'
-import { View, state, actions, Container } from './app/index.ts'
-import { app, h } from 'hyperapp'
-import { withLogger } from "@hyperapp/logger"
+import { filterObj, _fetch } from './util'
+import { tns } from 'tiny-slider'
+import { View, state, actions } from './app/index'
+import { app } from 'hyperapp'
+//import { withLogger } from "@hyperapp/logger"
+//import config from '../../waffles.config.js'
 
-const fetch = require('isomorphic-fetch')
-const base = `/wp-json/wp/v2`
+//const fetch = require('isomorphic-fetch')
+//const base = `/wp-json/wp/v2`
 
 //
 // no top level links in nav
@@ -38,7 +38,7 @@ if (modalToggles) {
     body.classList.toggle('modal-open')
     html.classList.toggle('modal-open')
   }
-  window.toggleModal = toggleModal
+  //window.toggleModal = toggleModal
   document.onkeydown = e => {
     if(e.key === "Escape" && body.classList.contains('modal-open')) {
       toggleModal()
@@ -55,10 +55,10 @@ if (modalToggles) {
 //
 // carousel logic for blade components
 if (document.querySelectorAll('.carousel').length) {
-  const carouselsEl = Array.from(document.querySelectorAll('.carousel'))
-  const carousels = carouselsEl.map((carousel, i) => {
+  const carouselsEl: HTMLElement[] = Array.from(document.querySelectorAll('.carousel'))
+  carouselsEl.map((carousel) => {
     const id = carousel.id
-    const dataset = <HTMLElement>carousel.dataset
+    const { dataset } = carousel
     const data = filterObj({...dataset})
     //console.log(data)
     return tns({
@@ -78,15 +78,15 @@ if (document.querySelectorAll('.carousel').length) {
 if (document.body.classList.contains(`archive`)) {
   if (document.querySelector('.menu-links') !== null) {
     const initHA = async () => {
-      const dataset = {...document.querySelector('.menu-links').dataset}
-      const all = await _fetch(`/sample-menu`, { per_page: 99 })
-      const filtered = all.filter(e => e.acf.event_type.term_id == dataset.eventType)
-      const sorted = filtered.sort((a, b) => a.title.rendered > b.title.rendered)
+      const { dataset } = document.querySelector('.menu-links') as HTMLElement
+      const allData = await _fetch(`/sample-menu`, { per_page: 99 })
+      const filtered: object[] = allData.filter((e: any) => e.acf.event_type.term_id == dataset.eventType)
+      const sorted: object[] = filtered.sort((a: any, b: any):any => a.title.rendered > b.title.rendered)
       const newState = {
         ...state,
         data: sorted,
       }
-      const appI = app(newState, actions, View, document.getElementById('hyperapp'))
+      app(newState, actions, View, document.getElementById('hyperapp'))
     }
     initHA()
   }
@@ -96,8 +96,8 @@ if (document.body.classList.contains(`archive`)) {
 //const sent = true
 if (document.querySelector('.legend') !== null) {
   window.addEventListener("scroll", function() {
-    const elementTarget = document.querySelector('.legend')
-    const footerNav = document.getElementById('footer-nav')
+    const elementTarget:HTMLElement = document.querySelector('.legend')
+    const footerNav:HTMLElement = document.getElementById('footer-nav')
     if (window.scrollY < (elementTarget.offsetTop + elementTarget.offsetHeight)) {
       footerNav.classList.add('opacity-0')
       footerNav.classList.add('invisible')
@@ -108,11 +108,10 @@ if (document.querySelector('.legend') !== null) {
   })
 }
 
-const footerNav = document.getElementById('footer-nav')
+const footerNav:HTMLElement = document.getElementById('footer-nav')
 if (footerNav !== null) {
-  footerNav.addEventListener('click', e => {
-    const id = e.target.id
-    console.log(id)
+  footerNav.addEventListener('click', (e:Event) => {
+    const id = (e.target as Element).id
     if (id === 'print') {
       e.preventDefault()
       window.print()

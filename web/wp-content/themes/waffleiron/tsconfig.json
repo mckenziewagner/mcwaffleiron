@@ -10,7 +10,11 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ]
   },
   "include": [
     "*.ts",

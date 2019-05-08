@@ -48,7 +48,7 @@ define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
  * Composer modifications
  */
 // Set root path.
-$root_path = realpath( __DIR__ . '/..' );
+$root_path = realpath( __DIR__ . '/../..' );
 
 // Include the Composer autoload file.
 require_once( $root_path . '/vendor/autoload.php' );

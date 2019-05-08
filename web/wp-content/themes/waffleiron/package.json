@@ -17,6 +17,7 @@
     "waffleiron": "^0.3.15"
   },
   "dependencies": {
+    "@types/isomorphic-fetch": "^0.0.35",
     "@types/wpapi": "^1.1.0",
     "@wordpress/api-fetch": "^3.0.0",
     "axios": "^0.18.0",
