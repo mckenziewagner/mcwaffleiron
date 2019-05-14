@@ -20,6 +20,8 @@ install:
 - composer install
 before_script:
 - sudo dpkg -i lando-stable.deb
+script:
+- echo 'yo mom'
 notifications:
   email:
     recipients:
