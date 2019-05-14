@@ -12,6 +12,8 @@ env:
   - PSITE='mcwaffleiron'
   - PENV='dev'
 before_install:
+- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv
+  -in .env.enc -out .env -d
 - composer self-update
 install:
 - composer install
