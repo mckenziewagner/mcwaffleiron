@@ -66,26 +66,5 @@
       "plugins/{$name}/": ["type:wordpress-plugin"],
       "themes/{$name}/": ["type:wordpress-theme"]
     }
-  },
-  "scripts": {
-    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
-    "replace-themes": "cd ./vendor/pantheon-systems/wordpress/wp-content && rm -rf themes && ln -s ../../../../themes ./themes",
-    "replace-plugins": "cd ./vendor/pantheon-systems/wordpress/wp-content && rm -rf plugins && ln -s ../../../../plugins ./plugins",
-    "overwrite-wp-config": "cp -rf ./wp-config-default.php ./vendor/pantheon-systems/wordpress/wp-config.php",
-    "symlink-wp": "cd web && rm -rf ./cms && ln -s ../vendor/pantheon-systems/wordpress ./cms",
-    "post-install-cmd": [
-      "@remove-git-submodules",
-      "@overwrite-wp-config",
-      "@symlink-wp",
-      "@replace-themes",
-      "@replace-plugins"
-    ],
-    "post-update-cmd": [
-      "@remove-git-submodules",
-      "@overwrite-wp-config",
-      "@symlink-wp",
-      "@replace-themes",
-      "@replace-plugins"
-    ]
   }
 }
