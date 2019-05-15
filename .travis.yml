@@ -20,7 +20,7 @@ install:
 - composer install
 before_script:
 - wget https://github.com/lando/lando/releases/download/v3.0.0-rc.16/lando-v3.0.0-rc.16.deb
-- sudo dpkg -i lando-stable.deb
+- sudo dpkg -i lando-v3.0.0-rc.16.deb
 script:
 - echo 'yo mom'
 notifications:
