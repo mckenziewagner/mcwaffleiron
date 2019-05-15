@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mckenziewagner/mcwaffleiron.svg?branch=master)](https://travis-ci.org/mckenziewagner/mcwaffleiron)
+
 # McWaffleiron
 
 ![](https://media3.giphy.com/media/103liSxCY1NpLO/200w.webp)
