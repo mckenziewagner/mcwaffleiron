@@ -64,7 +64,7 @@ define( 'DB_USER', 'pantheon' );
 define( 'DB_PASSWORD', 'pantheon' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'database' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

@@ -8,15 +8,15 @@
       "type": "package",
       "package": {
         "name": "pantheon-systems/wordpress",
-        "version": "5.1.1",
+        "version": "5.2.0",
         "dist": {
-          "url": "https://github.com/pantheon-systems/WordPress/archive/5.1.1.zip",
+          "url": "https://github.com/pantheon-systems/WordPress/archive/5.2.zip",
           "type": "zip"
         },
         "source": {
           "url": "git@github.com:pantheon-systems/WordPress.git",
           "type": "git",
-          "reference": "5.1.1"
+          "reference": "5.2"
         },
         "type": "wordpress-core",
         "require": {
@@ -63,23 +63,29 @@
   },
   "extra": {
     "installer-paths": {
-      "vendor/pantheon-systems/wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "vendor/pantheon-systems/wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+      "plugins/{$name}/": ["type:wordpress-plugin"],
+      "themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "scripts": {
     "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "replace-themes": "cd ./vendor/pantheon-systems/wordpress/wp-content && rm -rf themes && ln -s ../../../../themes ./themes",
+    "replace-plugins": "cd ./vendor/pantheon-systems/wordpress/wp-content && rm -rf plugins && ln -s ../../../../plugins ./plugins",
     "overwrite-wp-config": "cp -rf ./wp-config-default.php ./vendor/pantheon-systems/wordpress/wp-config.php",
     "symlink-wp": "cd web && rm -rf ./cms && ln -s ../vendor/pantheon-systems/wordpress ./cms",
     "post-install-cmd": [
       "@remove-git-submodules",
       "@overwrite-wp-config",
-      "@symlink-wp"
+      "@symlink-wp",
+      "@replace-themes",
+      "@replace-plugins"
     ],
     "post-update-cmd": [
       "@remove-git-submodules",
       "@overwrite-wp-config",
-      "@symlink-wp"
+      "@symlink-wp",
+      "@replace-themes",
+      "@replace-plugins"
     ]
   }
 }

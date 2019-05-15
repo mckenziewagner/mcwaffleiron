@@ -1,0 +1,13 @@
+.btn {
+  @apply bg-primary rounded my-3 px-4 py-3 text-white leading-none;
+
+  transition: 0.2s ease;
+}
+
+.big-button {
+  transition: all $anim-time ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0 !important;
+  }
+}

@@ -1,0 +1,66 @@
+.boxed-lunch-item:last-of-type > .desc {
+  border-bottom: none;
+}
+
+$sub-heading: 240px;
+.sub-heading {
+  width: $sub-heading;
+  height: $sub-heading;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a[id*="CONTROL"].menu-link-item {
+  div h4,
+  div h3 {
+    background-color: transparent;
+  }
+
+  div:hover h4,
+  div:hover h2 {
+    background-color: white;
+    box-shadow: none;
+    color: config('colors.orange');
+  }
+
+  > div {
+    height: 300px;
+    background-color: transparent;
+    background-blend-mode: multiply;
+    transition: all $anim-time ease-in-out;
+    box-shadow: none;
+
+    h3, h4 {
+      transition: all 200ms ease-in-out;
+    }
+
+    &:after {
+      transition: all 200ms ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: none;
+
+      $height: 200px;
+      &:after {
+        transition: all 200ms ease-in-out;
+        position: absolute;
+        content: '';
+        bottom: -$height;
+        left: 0;
+        width: 100%;
+        height: $height;
+        background-color: config('colors.orange');
+      }
+    }
+  }
+}
+
+// .visible {
+//   transform: translate3d(0, 0, 0), scale3d(0, 0, 0);
+// }
+
+// .invisible {
+//   transform: translate3d(-120%, 0, 120%), scale3d(0, 0, -100%);
+// }
