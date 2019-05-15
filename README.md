@@ -1,10 +1,12 @@
+[![Build Status](https://travis-ci.org/mckenziewagner/mcwaffleiron.svg?branch=master)](https://travis-ci.org/mckenziewagner/mcwaffleiron)
+
 # McWaffleiron
 
 ![](https://media3.giphy.com/media/103liSxCY1NpLO/200w.webp)
 
 Modern WordPress driven development starts here. This is the main repo for McWaffleiron. The framework is in the early stages but provides users with modern tools to create, maintain, and deploy dynamic modular websites powered by WordPress (possibly other content management systems). McWaffleiron takes inspiration from Sage 
 
-Currently uses integrates with Pantheon for hosting and uses Lando for local development.
+Currently integrates with Pantheon for hosting and uses Lando for local development.
 
 See the `./bin` dir for all scripts related to the site.
 
