@@ -23,7 +23,7 @@
           "johnpbloch/wordpress-core-installer": ">=0.1"
         },
         "extra": {
-          "wordpress-install-dir": "web/wp"
+          "wordpress-install-dir": "vendor/pantheon-systems/wordpress"
         }
       }
     },
@@ -38,8 +38,8 @@
           "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
         },
         "require": {
-          "philippbaschke/acf-pro-installer": "^1.0",
-          "composer/installers": "^1.0"
+          "philippbaschke/acf-pro-installer": ">=1.0",
+          "composer/installers": ">=1.0"
         }
       }
     }
@@ -63,17 +63,23 @@
   },
   "extra": {
     "installer-paths": {
-      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+      "vendor/pantheon-systems/wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "vendor/pantheon-systems/wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   },
   "scripts": {
     "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "overwrite-wp-config": "cp -rf ./wp-config-default.php ./vendor/pantheon-systems/wordpress/wp-config.php",
+    "symlink-wp": "cd web && rm -rf ./cms && ln -s ../vendor/pantheon-systems/wordpress ./cms",
     "post-install-cmd": [
-      "@remove-git-submodules"
+      "@remove-git-submodules",
+      "@overwrite-wp-config",
+      "@symlink-wp"
     ],
     "post-update-cmd": [
-      "@remove-git-submodules"
+      "@remove-git-submodules",
+      "@overwrite-wp-config",
+      "@symlink-wp"
     ]
   }
 }
