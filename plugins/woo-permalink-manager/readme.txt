@@ -2,7 +2,7 @@
 Contributors: premmerce
 Tags: woocommerce url, remove product, remove product_category, woocommerce permalink, woocommerce, woocommerce seo
 Requires at least: 4.8
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 2.1.9
 Requires PHP: 5.6
 License: GPLv2 or later

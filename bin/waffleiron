@@ -41,12 +41,12 @@ init() {
 
 # do your business here
 while [ "$1" != "" ]; do
-  case $1 in
-    init )  # init for now
+  case "$1" in
+    "init" )  # init for now
       init ;;
-    clean ) # clean
+    "clean" ) # clean
       clean ;;
-    ls ) # ls
+    "ls" ) # ls
       _ls ;;
     * )     # catch all
       echo 'suh?' ;;

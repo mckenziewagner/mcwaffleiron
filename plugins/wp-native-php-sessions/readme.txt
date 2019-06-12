@@ -2,7 +2,7 @@
 Contributors: getpantheon, outlandish josh, mpvanwinkle77, danielbachhuber, andrew.taylor
 Tags: comments, sessions
 Requires at least: 4.7
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 0.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
