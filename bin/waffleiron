@@ -44,9 +44,9 @@ while [ "$1" != "" ]; do
   case $1 in
     init )  # init for now
       init ;;
-    clean ) # init for now
+    clean ) # clean
       clean ;;
-    ls ) # init for now
+    ls ) # ls
       _ls ;;
     * )     # catch all
       echo 'suh?' ;;

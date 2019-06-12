@@ -1,0 +1,62 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('content'); ?>
+
+ <?php echo var_dump($data); ?>
+
+
+ <?php if(is_front_page()): ?>
+ <?php if(get_field('gallery')): ?>
+ <?php echo $this->runChild('partials.home-header'); ?>
+ <?php endif; ?>
+ <?php endif; ?>
+
+ <?php if(have_rows('dynamic_layouts')): ?>
+ <?php while(have_rows('dynamic_layouts')): ?> <?php (the_row()); ?>
+
+ <?php if(get_row_layout() === 'header'): ?>
+ <?php echo $this->runChild('components.page-header', [
+ 'size' => get_sub_field('style')['type'] ? 'half' : 'sm',
+ 'url' => get_sub_field('image')['url'],
+ 'title' => get_the_title(),
+ ]); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'content'): ?>
+ <?php echo $this->runChild('partials.content'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'call_to_action_with_copy'): ?>
+ <?php echo $this->runChild('partials.call-to-action-with-copy'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'call_out'): ?>
+ <?php echo $this->runChild('partials.call-out'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'contact'): ?>
+ <?php echo $this->runChild('partials.contact'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'featured_menus'): ?>
+ <?php echo $this->runChild('partials.featured-menus'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'call_to_action_buttons'): ?>
+ <?php echo $this->runChild('partials.call-to-action-buttons'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'testimonial_carousel'): ?>
+ <?php echo $this->runChild('partials.testimonial-carousel'); ?>
+ <?php endif; ?>
+
+ <?php if(get_row_layout() === 'menus'): ?>
+ <?php echo $this->runChild('partials.menus'); ?>
+ <?php endif; ?>
+
+ <?php endwhile; ?>
+ <?php endif; ?>
+
+<?php $this->stopSection(); ?>
+
+<?php if (@$_shouldextend[1]) { echo $this->runChild('layouts.main'); } ?>

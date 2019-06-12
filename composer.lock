@@ -281,16 +281,16 @@
         },
         {
             "name": "eftec/bladeone",
-            "version": "3.24",
+            "version": "3.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EFTEC/BladeOne.git",
-                "reference": "e3273958e19f38cc1492ea7c7c0bf2defc5db000"
+                "reference": "0e4ee062e385c7b226f9953d754bc57ebe072d85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/e3273958e19f38cc1492ea7c7c0bf2defc5db000",
-                "reference": "e3273958e19f38cc1492ea7c7c0bf2defc5db000",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/0e4ee062e385c7b226f9953d754bc57ebe072d85",
+                "reference": "0e4ee062e385c7b226f9953d754bc57ebe072d85",
                 "shasum": ""
             },
             "require": {
@@ -303,7 +303,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.24-dev"
+                    "dev-master": "3.27-dev"
                 }
             },
             "autoload": {
@@ -331,7 +331,7 @@
                 "templating",
                 "view"
             ],
-            "time": "2019-05-05T23:52:40+00:00"
+            "time": "2019-05-25T23:05:48+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -1078,16 +1078,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.11",
+            "version": "7.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6"
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/64cb33f5b520da490a7b13149d39b43cf3c890c6",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
                 "shasum": ""
             },
             "require": {
@@ -1158,7 +1158,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-14T04:53:02+00:00"
+            "time": "2019-05-28T11:59:40+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1834,16 +1834,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.8",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "8cf39fb4ccff793340c258ee7760fd40bfe745fe"
+                "reference": "a5e3dd4e93a364668034a3cb6efa963d0b33ab45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/8cf39fb4ccff793340c258ee7760fd40bfe745fe",
-                "reference": "8cf39fb4ccff793340c258ee7760fd40bfe745fe",
+                "url": "https://api.github.com/repos/symfony/process/zipball/a5e3dd4e93a364668034a3cb6efa963d0b33ab45",
+                "reference": "a5e3dd4e93a364668034a3cb6efa963d0b33ab45",
                 "shasum": ""
             },
             "require": {
@@ -1852,7 +1852,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1879,7 +1879,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-10T16:20:36+00:00"
+            "time": "2019-05-26T20:47:49+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2148,15 +2148,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
-            "version": "3.6.2",
+            "version": "3.6.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/3.6.2"
+                "reference": "tags/3.6.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.3.6.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.3.6.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"

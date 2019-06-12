@@ -33,10 +33,10 @@ $scheme = 'http';
 if ( isset( $_SERVER['HTTP_USER_AGENT_HTTPS'] ) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON' ) {
 	$scheme = 'https';
 }
+
 $site_url = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
 define( 'WP_HOME', $site_url );
 define( 'WP_SITEURL', $site_url . 'cms/' );
-
 /*
 * Define wp-content directory outside of WordPress core directory
 */
