@@ -30,4 +30,5 @@ Fire it up `./bin/waffles --key=YOUR_ID_DUDE`
 
 ## Future Goals
 
+* getitdone.exe!!!
 * CLI examples: `waffles init -y` or `waffles init --id YOUR_ID_DUDE ... # or more env vars`
