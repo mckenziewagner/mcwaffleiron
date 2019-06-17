@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Remove lingering DB dumps
+lando ssh -c "rm -f /app/database.sql.gz"
+
+# Create a new backup of your database
+# If you've created a db backup recently this step is not needed.
+lando terminus backup:create $1 --element=db
+
+# Download and import backup of the database
+lando terminus backup:get $1 --element=db --to=/app/database.sql.gz
+lando db-import database.sql.gz
