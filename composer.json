@@ -6,7 +6,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/pantheon-systems/wordpress-composer"
+      "url": "git@github.com:pantheon-systems/wordpress-composer"
     },
     {
       "type": "package",
@@ -36,6 +36,7 @@
     "wpackagist-plugin/classic-editor": "^1.4",
     "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
     "anthonybudd/wp_route": "@dev",
+    "pantheon-systems/wordpress-composer": "@dev",
     "eftec/bladeone": "^3.23",
     "upstatement/routes": "^0.5.0",
     "spatie/server-side-rendering": "^0.2.5",
