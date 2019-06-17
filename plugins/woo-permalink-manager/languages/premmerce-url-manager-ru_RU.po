@@ -1,0 +1,260 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Premmerce url manager\n"
+"POT-Creation-Date: 2018-06-22 15:02+0300\n"
+"PO-Revision-Date: 2018-06-22 15:02+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: build/src/Admin/Admin.php:126 build/src/Admin/Admin.php:127
+#: src/Admin/Admin.php:126 src/Admin/Admin.php:127
+msgid "Permalink Manager"
+msgstr "Ссылки магазина"
+
+#: build/src/Admin/Admin.php:170 src/Admin/Admin.php:170
+msgid "Settings"
+msgstr "Настройки"
+
+#: build/src/Admin/Admin.php:174 src/Admin/Admin.php:174
+msgid "Account"
+msgstr "Аккаунт"
+
+#: build/src/Admin/Admin.php:176 src/Admin/Admin.php:176
+msgid "Contact Us"
+msgstr "Свяжитесь с нами"
+
+#: build/src/Admin/Admin.php:177 src/Admin/Admin.php:177
+msgid "Pricing"
+msgstr "Цены "
+
+#: build/src/Admin/Settings.php:35 src/Admin/Settings.php:35
+msgid "Categories"
+msgstr "Категории"
+
+#: build/src/Admin/Settings.php:39 src/Admin/Settings.php:39
+msgid "Products"
+msgstr "Товары"
+
+#: build/src/Admin/Settings.php:43 src/Admin/Settings.php:43
+msgid "Additional"
+msgstr "Дополнительно"
+
+#: build/src/UrlManagerPlugin.php:118 src/UrlManagerPlugin.php:118
+#, php-format
+msgid "The %s plugin requires %s plugin to be active!"
+msgstr "Для работы плагина %s нужен плагин %s"
+
+#: build/views/admin/banner.php:18 views/admin/banner.php:18
+msgid "Premmerce WooCommerce Product Filter Premium"
+msgstr "Premmerce WooCommerce Product Filter Premium"
+
+#: build/views/admin/banner.php:21 views/admin/banner.php:21
+msgid ""
+"Get clean URLs and additional Pro SEO settings for your Filter pages with "
+"Premmerce WooCommerce Filter Premium for only $69!"
+msgstr ""
+"Получите чистые URL-адреса и дополнительные настройки Pro SEO для ваших "
+"страниц фильтров с помощью Premmerce WooCommerce Filter Premium всего за $ "
+"69!"
+
+#: build/views/admin/banner.php:32 views/admin/banner.php:32
+msgid "Get it now"
+msgstr "Получить сейчас"
+
+#: build/views/admin/main.php:9 views/admin/main.php:9
+msgid "WooCommerce Permalink Settings"
+msgstr "Настройки постоянных ссылок WooCommerce"
+
+#: build/views/admin/section/additional.php:22
+#: views/admin/section/additional.php:22
+msgid "Remove product tag base"
+msgstr "Не показывать префикс для метки товара"
+
+#: build/views/admin/section/additional.php:25
+#: build/views/admin/section/additional.php:57
+#: views/admin/section/additional.php:25 views/admin/section/additional.php:57
+msgid "Available only in premium version"
+msgstr "Доступно только в версии Premium"
+
+#: build/views/admin/section/additional.php:34
+#: views/admin/section/additional.php:34
+msgid "Use primary category"
+msgstr "Использовать основную категорию"
+
+#: build/views/admin/section/additional.php:36
+#: views/admin/section/additional.php:36
+msgid "Use 'Yoast SEO' primary category to build product path"
+msgstr "Использовать основную категорию 'Yoast SEO' для создания ссылки товара"
+
+#: build/views/admin/section/additional.php:44
+#: views/admin/section/additional.php:44
+msgid "Add canonicals"
+msgstr "Добавить canonical"
+
+#: build/views/admin/section/additional.php:46
+#: views/admin/section/additional.php:46
+msgid "Add canonical meta tag to duplicated pages"
+msgstr "Добавить мета тег canonical на дубли страниц"
+
+#: build/views/admin/section/additional.php:54
+#: views/admin/section/additional.php:54
+msgid "Create redirects"
+msgstr "Создать редиректы"
+
+#: build/views/admin/section/additional.php:58
+#: views/admin/section/additional.php:58
+msgid "Create 301 redirect from duplicated pages"
+msgstr "Создать 301 перенаправление с продублированных страниц"
+
+#: build/views/admin/section/category.php:16
+#: build/views/admin/section/product.php:18 views/admin/section/category.php:16
+#: views/admin/section/product.php:18
+msgid "Use WooCommerce settings"
+msgstr "Использовать Настройки WooCommerce"
+
+#: build/views/admin/section/category.php:25
+#: views/admin/section/category.php:25
+msgid "Category slug"
+msgstr "Ярлык категории"
+
+#: build/views/admin/section/category.php:37
+#: views/admin/section/category.php:37
+msgid "Full category path"
+msgstr "Полный путь категории"
+
+#: build/views/admin/section/product.php:29 views/admin/section/product.php:29
+msgid "Product slug"
+msgstr "Ярлык товара"
+
+#: build/views/admin/section/product.php:41 views/admin/section/product.php:41
+msgid "Product slug with primary category"
+msgstr "Ярлык товара с основной категорией"
+
+#: build/views/admin/section/product.php:53 views/admin/section/product.php:53
+msgid "Full product path"
+msgstr "Полный путь товара"
+
+#: build/views/admin/tabs/settings.php:10 views/admin/tabs/settings.php:10
+msgid ""
+"WooCommerce Permalink Manager offers you the ability to create a custom URL "
+"structure for your permalinks. Custom URL structures can improve the "
+"aesthetics, usability, and forward-compatibility of your links. A number of "
+"settings are available, and here are some examples to get you started."
+msgstr ""
+"WooCommerce Permalink Manager даёт возможность указать для постоянных ссылок "
+"и архивов собственную структуру. Это может придать вашим ссылкам "
+"эстетичность, удобство использования и обеспечить совместимость в будущем. "
+"Можно просмотреть полный список доступных настроек, а для начала несколько "
+"примеров."
+
+#~ msgid "Manage Permalinks"
+#~ msgstr "Управление ссылками магазина"
+
+#~ msgid "Add canonical"
+#~ msgstr "Добавить canonical"
+
+#~ msgid "Add canonical meta tag to old page"
+#~ msgstr "Добавить мета тег canonical на старой странице"
+
+#~ msgid "Create redirect"
+#~ msgstr "Создать перенаправление"
+
+#~ msgid "Create 301 redirect from old page"
+#~ msgstr "Создать 301 перенаправление со старой страницы"
+
+#~ msgid "Default"
+#~ msgstr "По умолчанию"
+
+#~ msgid "Slug"
+#~ msgstr "Ярлык"
+
+#~ msgid "Hierarchical"
+#~ msgstr "Иерархия"
+
+#~ msgid "Direct parent category"
+#~ msgstr "Прямая родительская категория"
+
+#~ msgid "Category"
+#~ msgstr "Категория"
+
+#~ msgid "Remove base"
+#~ msgstr "Не показывать префикс"
+
+#~ msgid ""
+#~ "Remove prefix from category URL<br> default: /product-category/"
+#~ "accessories/action-figures/ - changed: /accessories/action-figures/"
+#~ msgstr ""
+#~ "Не показывать префикс в URL категории<br> по умолчанию: /product-category/"
+#~ "accessories/action-figures/ - изменено: /accessories/action-figures/"
+
+#~ msgid "Remove parent slugs"
+#~ msgstr "Не показывать родительский URL"
+
+#~ msgid ""
+#~ "Remove parent slugs from category URL<br> default: /product-category/"
+#~ "accessories/action-figures/ - changed: /product-category/action-figures/"
+#~ msgstr ""
+#~ "Не показывать родительский URL в категории<br> по умолчанию: /product-"
+#~ "category/accessories/action-figures/ - изменено: /product-category/action-"
+#~ "figures/"
+
+#~ msgid "Product"
+#~ msgstr "Товар"
+
+#~ msgid ""
+#~ "Remove prefix from product URL<br> default: /shop/accessories/action-"
+#~ "figures/acme/ - changed: /accessories/action-figures/acme/"
+#~ msgstr ""
+#~ "Не показывать префикс в URL товара<br> по умолчанию:/shop/accessories/"
+#~ "action-figures/acme/ - изменено: /accessories/action-figures/acme/"
+
+#~ msgid "Product tags"
+#~ msgstr "Метки товаров"
+
+#~ msgid "Direct parent slug"
+#~ msgstr "Прямая родительская пуля"
+
+#~ msgid "WooCommerce Permalink Manager"
+#~ msgstr "Управление ссылками магазина"
+
+#~ msgid "This plugin requires %s plugin to be active!"
+#~ msgstr "Для этого плагина необходим плагин %s!"
+
+#~ msgid ""
+#~ "Remove prefix from product url<br> default: /shop/accessories/action-"
+#~ "figures/acme/ - changed: /accessories/action-figures/acme/"
+#~ msgstr ""
+#~ "Не показывать префикс в url товара<br> по умолчанию:/shop/accessories/"
+#~ "action-figures/acme/ - изменено: /accessories/action-figures/acme/"
+
+#~ msgid ""
+#~ "Remove parent slugs from category url<br> default: /product-category/"
+#~ "accessories/action-figures/ - changed: /product-category/action-figures/"
+#~ msgstr ""
+#~ "Не показывать родительский url в категории<br> по умолчанию: /product-"
+#~ "category/accessories/action-figures/ - изменено: /product-category/action-"
+#~ "figures/"
+
+#~ msgid "Url settings"
+#~ msgstr "Настройки url"
+
+#~ msgid ""
+#~ "Remove prefix from category url<br> default: /product-category/"
+#~ "accessories/action-figures/ - changed: /accessories/action-figures/"
+#~ msgstr ""
+#~ "Не показывать префикс в url категории<br> по умолчанию: /product-category/"
+#~ "accessories/action-figures/ - изменено: /accessories/action-figures/"
+
+#~ msgid "Remove category base"
+#~ msgstr "Не показивать "

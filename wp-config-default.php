@@ -33,11 +33,10 @@ $scheme = 'http';
 if ( isset( $_SERVER['HTTP_USER_AGENT_HTTPS'] ) && $_SERVER['HTTP_USER_AGENT_HTTPS'] == 'ON' ) {
 	$scheme = 'https';
 }
+
 $site_url = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
-echo $site_url;
 define( 'WP_HOME', $site_url );
 define( 'WP_SITEURL', $site_url . 'cms/' );
-
 /*
 * Define wp-content directory outside of WordPress core directory
 */
@@ -64,7 +63,7 @@ define( 'DB_USER', 'pantheon' );
 define( 'DB_PASSWORD', 'pantheon' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'database' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );

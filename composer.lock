@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ebe07e7e9b2fafc9290126f27ccbd97",
+    "content-hash": "d0f71180765853f4243a2a213260ee86",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.0",
+            "version": "5.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.0"
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.8.1"
             },
             "require": {
                 "composer/installers": ">=1.0",
@@ -281,16 +281,16 @@
         },
         {
             "name": "eftec/bladeone",
-            "version": "3.24",
+            "version": "3.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EFTEC/BladeOne.git",
-                "reference": "e3273958e19f38cc1492ea7c7c0bf2defc5db000"
+                "reference": "b499bfa27feaae81932c7a874cd42eefa4397967"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/e3273958e19f38cc1492ea7c7c0bf2defc5db000",
-                "reference": "e3273958e19f38cc1492ea7c7c0bf2defc5db000",
+                "url": "https://api.github.com/repos/EFTEC/BladeOne/zipball/b499bfa27feaae81932c7a874cd42eefa4397967",
+                "reference": "b499bfa27feaae81932c7a874cd42eefa4397967",
                 "shasum": ""
             },
             "require": {
@@ -298,18 +298,22 @@
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7"
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "~3.3.2"
+            },
+            "suggest": {
+                "ext-mbstring": "This extension is used if it's active"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.24-dev"
+                    "dev-master": "3.30-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "eftec\\bladeone\\": "lib/",
-                    "eftec\\tests\\": "tests/"
+                    "eftec\\bladeone\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -331,20 +335,20 @@
                 "templating",
                 "view"
             ],
-            "time": "2019-05-05T23:52:40+00:00"
+            "time": "2019-06-15T03:33:47+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
-            "version": "1.0.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
-                "reference": "fd12f5cfe27223b92b0f4bbc097059eb23cc56c4"
+                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/fd12f5cfe27223b92b0f4bbc097059eb23cc56c4",
-                "reference": "fd12f5cfe27223b92b0f4bbc097059eb23cc56c4",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/a04c2c383ef13aae077f36799ed2eafdebd618d2",
+                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2",
                 "shasum": ""
             },
             "require": {
@@ -354,8 +358,7 @@
                 "composer/installers": "<1.0.6"
             },
             "require-dev": {
-                "composer/composer": "^1.0",
-                "phpunit/phpunit": ">=4.8.35"
+                "composer/composer": "1.0.*@dev"
             },
             "type": "composer-plugin",
             "extra": {
@@ -368,7 +371,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -380,7 +383,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2018-11-09T20:10:38+00:00"
+            "time": "2015-06-11T15:15:30+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -431,25 +434,38 @@
             "time": "2019-04-07T13:18:21+00:00"
         },
         {
-            "name": "pantheon-systems/wordpress",
-            "version": "5.1.1",
+            "name": "pantheon-systems/wordpress-composer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:pantheon-systems/WordPress.git",
-                "reference": "5.1.1"
+                "url": "https://github.com/pantheon-systems/wordpress-composer.git",
+                "reference": "809460d6d2e0de6ca194a6c4459cf09644d7c730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/pantheon-systems/WordPress/archive/5.1.1.zip",
-                "reference": "5.1.1"
+                "url": "https://api.github.com/repos/pantheon-systems/wordpress-composer/zipball/809460d6d2e0de6ca194a6c4459cf09644d7c730",
+                "reference": "809460d6d2e0de6ca194a6c4459cf09644d7c730",
+                "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core-installer": ">=0.1"
+                "johnpbloch/wordpress-core-installer": "~0.1"
             },
             "type": "wordpress-core",
             "extra": {
-                "wordpress-install-dir": "vendor/pantheon-systems/wordpress"
-            }
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                },
+                "wordpress-install-dir": "web/wp"
+            },
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "WordPress for Pantheon with a composer.json file.",
+            "support": {
+                "source": "https://github.com/pantheon-systems/wordpress-composer/tree/5.2.1",
+                "issues": "https://github.com/pantheon-systems/wordpress-composer/issues"
+            },
+            "time": "2019-05-21T21:08:52+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -763,16 +779,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
                 "shasum": ""
             },
             "require": {
@@ -793,8 +809,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Prophecy\\": "src/"
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -822,7 +838,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05T17:53:17+00:00"
+            "time": "2019-06-13T12:50:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -980,16 +996,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059"
+                "reference": "1038454804406b0b5f5f520358e78c1c2f71501e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/8b389aebe1b8b0578430bda0c7c95a829608e059",
-                "reference": "8b389aebe1b8b0578430bda0c7c95a829608e059",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/1038454804406b0b5f5f520358e78c1c2f71501e",
+                "reference": "1038454804406b0b5f5f520358e78c1c2f71501e",
                 "shasum": ""
             },
             "require": {
@@ -1025,7 +1041,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2019-02-20T10:12:59+00:00"
+            "time": "2019-06-07T04:22:29+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -1078,16 +1094,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.11",
+            "version": "7.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6"
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/64cb33f5b520da490a7b13149d39b43cf3c890c6",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
                 "shasum": ""
             },
             "require": {
@@ -1158,7 +1174,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-14T04:53:02+00:00"
+            "time": "2019-05-28T11:59:40+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1834,16 +1850,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.8",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "8cf39fb4ccff793340c258ee7760fd40bfe745fe"
+                "reference": "856d35814cf287480465bb7a6c413bb7f5f5e69c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/8cf39fb4ccff793340c258ee7760fd40bfe745fe",
-                "reference": "8cf39fb4ccff793340c258ee7760fd40bfe745fe",
+                "url": "https://api.github.com/repos/symfony/process/zipball/856d35814cf287480465bb7a6c413bb7f5f5e69c",
+                "reference": "856d35814cf287480465bb7a6c413bb7f5f5e69c",
                 "shasum": ""
             },
             "require": {
@@ -1852,7 +1868,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1879,20 +1895,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-10T16:20:36+00:00"
+            "time": "2019-05-30T16:10:05+00:00"
         },
         {
             "name": "theseer/tokenizer",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "1c42705be2b6c1de5904f8afacef5895cab44bf8"
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/1c42705be2b6c1de5904f8afacef5895cab44bf8",
-                "reference": "1c42705be2b6c1de5904f8afacef5895cab44bf8",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
+                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
                 "shasum": ""
             },
             "require": {
@@ -1919,7 +1935,7 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2019-04-04T09:56:43+00:00"
+            "time": "2019-06-13T22:48:21+00:00"
         },
         {
             "name": "upstatement/routes",
@@ -2148,15 +2164,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
-            "version": "3.6.2",
+            "version": "3.6.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/3.6.2"
+                "reference": "tags/3.6.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.3.6.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.3.6.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -2187,12 +2203,13 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "anthonybudd/wp_route": 20
+        "anthonybudd/wp_route": 20,
+        "pantheon-systems/wordpress-composer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0"
+        "php": ">=7.1"
     },
     "platform-dev": []
 }

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# progress bar
+prog() {
+  local w=80 p=$(($1 * 10));  shift
+
+  sleep 1 &&\
+  printf -v dots "%*s" "$(( $p*$w/100 ))" ""; dots=${dots// /.};
+  printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*"; 
+}
+
+clean() {
+  rm -rf vendor web/cms &&\
+  prog 3
+  # find plugins -mindepth 1 ! -regex '^plugins/util\(/.*\)?' -delete;
+  find -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete;
+  prog 7
+  prog 10
+}
+
+_ls() {
+  ls -lah ./;
+}
+
+# init function... used to be all the commands in composer.json but thats ugly dude
+init() {
+  clean &&\
+  composer install &&\
+  prog 1
+  find . -mindepth 2 -type d -name .git | xargs rm -rf &&\
+  prog 3
+  rm -rf vendor/pantheon-systems/wordpress/wp-content/themes && ln -s themes vendor/pantheon-systems/wordpress/wp-content/themes &&\
+  prog 5
+  rm -rf vendor/pantheon-systems/wordpress/wp-content/plugins && ln -s plugins vendor/pantheon-systems/wordpress/wp-content/plugins &&\
+  prog 6
+  cp -rf wp-config-default.php vendor/pantheon-systems/wordpress/wp-config.php &&\
+  prog 8
+  rm -rf ./cms && ln -s vendor/pantheon-systems/wordpress web/cms;
+  prog 10
+}
+
+# do your business here
+while [ "$1" != "" ]; do
+  case "$1" in
+    "init" )  # init for now
+      init ;;
+    "clean" ) # clean
+      clean ;;
+    "ls" ) # ls
+      _ls ;;
+    * )     # catch all
+      echo 'suh?' ;;
+  esac
+  shift
+done
