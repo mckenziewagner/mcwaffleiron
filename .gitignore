@@ -18,6 +18,7 @@ sitemap.xml.gz
 *.log
 !plugins/util
 !plugins/index.php
+web/cms
 plugins/*
 
 # @TODO writable paths
