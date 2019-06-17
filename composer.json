@@ -23,10 +23,29 @@
           "composer/installers": ">=1.0"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress/wordpress",
+        "description": "WordPress for Pantheon with a composer.json file.",
+        "type": "wordpress-core",
+        "version": "5.x-dev",
+        "extra": {
+          "branch-alias": {
+            "dev-master": "5.x-dev"
+          },
+          "wordpress-install-dir": "web/cms"
+        },
+        "require": {
+          "johnpbloch/wordpress-core-installer": "~0.1"
+        }
+      }
     }
   ],
   "require": {
     "php": ">=7.1",
+    "wordpress/wordpress": "5.x-dev",
     "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
     "philippbaschke/acf-pro-installer": "^1.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
