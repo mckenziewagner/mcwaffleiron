@@ -9,6 +9,13 @@ prog() {
   printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*"; 
 }
 
+_help() {
+  echo "init       ./bin/waffleiron init"
+  echo "clean      ./bin/waffleiron clean"
+  echo "symlinks   ./bin/waffleiron symlinks"
+  echo "ls         ./bin/waffleiron ls"
+}
+
 clean() {
   rm -rf vendor web/cms &&\
   prog 3
@@ -16,10 +23,6 @@ clean() {
   find -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete;
   prog 7
   prog 10
-}
-
-_ls() {
-  ls -lah ./;
 }
 
 # init function... used to be all the commands in composer.json but thats ugly dude
@@ -39,6 +42,20 @@ init() {
   prog 10
 }
 
+_ls() {
+  ls -lah ./
+}
+
+_symlinks() {
+  ln -s ./wp-config-default.php ./web/cms/wp-config.php
+}
+
+if [ $# -eq 0 ]
+  then
+    echo "no args supplied \n\n"
+    _help
+fi
+
 # do your business here
 while [ "$1" != "" ]; do
   case "$1" in
@@ -46,6 +63,10 @@ while [ "$1" != "" ]; do
       init ;;
     "clean" ) # clean
       clean ;;
+    "symlinks" ) # clean
+      _symlinks ;;
+    "help" ) # clean
+      _help ;;
     "ls" ) # ls
       _ls ;;
     * )     # catch all
