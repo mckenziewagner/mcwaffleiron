@@ -85,6 +85,10 @@ while [ "$1" != "" ]; do
       clean ;;
     "help" )
       _help ;;
+    "pull" )
+      pull ;;
+    "restart" )
+      _restart ;;
     "ls" )
       _ls ;;
     * )    
