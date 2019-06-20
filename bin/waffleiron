@@ -1,54 +1,93 @@
 #!/bin/bash
 
-# progress bar
-prog() {
-  local w=80 p=$(($1 * 10));  shift
+#
+## function defs
+_help() {
+  echo "init       ./bin/waffleiron init"
+  echo "clean      ./bin/waffleiron clean"
+  echo "symlinks   ./bin/waffleiron symlinks"
+  echo "ls         ./bin/waffleiron ls"
+}
 
-  sleep 1 &&\
-  printf -v dots "%*s" "$(( $p*$w/100 ))" ""; dots=${dots// /.};
-  printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*"; 
+if [ $# -eq 0 ]
+  then
+    echo "no args supplied \n\n"
+    _help
+fi
+
+_ls() {
+  ls -lah ./
+}
+
+_symlinks() {
+  ln -s ./wp-config-default.php ./web/cms/wp-config.php
 }
 
 clean() {
-  rm -rf vendor web/cms &&\
-  prog 3
-  # find plugins -mindepth 1 ! -regex '^plugins/util\(/.*\)?' -delete;
-  find -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete;
-  prog 7
-  prog 10
+  rm -rf vendor node_modules web/cms
+  find . -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete
 }
 
-_ls() {
-  ls -lah ./;
+rm_submodules() {
+  git submodule deinit .
+  git submodule | cut -c43- | while read -r line; do (git rm "$line"); done
+  git config --local -l | grep submodule | sed -e 's/^\(submodule\.[^.]*\)\(.*\)/\1/g' | while read -r line; do (git config --local --remove-section "$line"); done
+  rm .gitmodules
+  rm -rf .git/modules
+}
+
+deploy() {
+  rm_submodules
+  clean
+  composer install --no-dev
+}
+
+_restart() {
+  lando start
+  pull
+  lando restart 
+}
+
+pull() {
+  lando ssh -c "rm -f /app/database.sql.gz"
+  lando terminus backup:create mcwaffleiron.dev --element=db
+  lando terminus backup:get mcwaffleiron.dev --element=db --to=/app/database.sql.gz
+  lando db-import database.sql.gz
+}
+
+install() {
+  if [[ ($2 -eq "-c") || ($2 -eq "--clean") ]]
+    then
+      rm -rf vendor node_modules web/cms
+  fi
+  composer install
+  pnpm install
+  rm_submodules
 }
 
 # init function... used to be all the commands in composer.json but thats ugly dude
 init() {
-  clean &&\
-  composer install &&\
-  prog 1
-  find . -mindepth 2 -type d -name .git | xargs rm -rf &&\
-  prog 3
-  rm -rf vendor/pantheon-systems/wordpress/wp-content/themes && ln -s themes vendor/pantheon-systems/wordpress/wp-content/themes &&\
-  prog 5
-  rm -rf vendor/pantheon-systems/wordpress/wp-content/plugins && ln -s plugins vendor/pantheon-systems/wordpress/wp-content/plugins &&\
-  prog 6
-  cp -rf wp-config-default.php vendor/pantheon-systems/wordpress/wp-config.php &&\
-  prog 8
-  rm -rf ./cms && ln -s vendor/pantheon-systems/wordpress web/cms;
-  prog 10
+  clean
+  install
+  _symlinks
+  _restart
 }
 
-# do your business here
+#
+## do your business here
 while [ "$1" != "" ]; do
   case "$1" in
-    "init" )  # init for now
+    "init" )
       init ;;
-    "clean" ) # clean
+    "install" )
+      install ;;
+    "clean" )
       clean ;;
-    "ls" ) # ls
+    "help" )
+      _help ;;
+    "ls" )
       _ls ;;
-    * )     # catch all
+    * )    
       echo 'suh?' ;;
   esac
   shift

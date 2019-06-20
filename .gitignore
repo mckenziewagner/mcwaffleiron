@@ -111,5 +111,3 @@ Thumbs.db
 .lando.local.yml
 .env
 node_modules
-vendor
-*/**/vendor/**/*

@@ -40,7 +40,7 @@ define( 'WP_SITEURL', $site_url . 'cms/' );
 /*
 * Define wp-content directory outside of WordPress core directory
 */
-/* define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/wp-content' ); */
+define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/wp-content' );
 /* define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' ); */
 
 /**
@@ -50,7 +50,7 @@ define( 'WP_SITEURL', $site_url . 'cms/' );
 $root_path = realpath( __DIR__ . '/../../..' );
 
 // Include the Composer autoload file.
-require_once( $root_path . '/vendor/autoload.php' );
+require_once( $root_path . 'vendor/autoload.php' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
