@@ -12,10 +12,19 @@ env:
   - SITE_NAME='McWaffleiron'
   - PSITE='mcwaffleiron'
   - PENV='dev'
+<<<<<<< HEAD
 before_install:
-- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv
-  -in .env.enc -out .env -d
+- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv -in .env.enc -out .env -d
 - "./bin/waffleiron init"
+=======
+  - secure: G2Og2PkTOIHjkQCdudOx12GrbNYA06emiejk63H2BUOHEmlRNH7IwI2rKvg8YvWSOn4slEO7b8/r2oWthXTITmwDo5xxbolaZLbKfgG06O6fieNfrKwK9ZfEaOn1MIxFq+nQbpKGWek02Rc5fyU01EbMMaokj6zfPvCHoCnRu5Vigq1/HOEacLY5cNFCwfu3s9D75QWDO3Dwastts5oRZhlpgnBqlPMyKgKfYI5YGDMJRuJ7KxlGOeEnrPJeFM8q3KYvuECI8TDSzAZh7dOzZQ8HVNXOLCW8TtsEZEUM8RAkHgd0ET/ijFXj0VgQTsnLmxqb3h7ZqCnGARH87rZUGhjF9rf6Vx8FlZmgmDMRddGPHxsEN9Z54YMou07bhIGRzLOjbzA02msAdj7c3O89D3J4eVhMGLrEyrDgUvM+0MHbHHJE49vmjRMaLXlqI3U/1K0C7hpCd818o9JpZHDsXfCt41sVyo7uC5T5le0NQ1NfmJTJaSsdYQMaFqG+6EbK8zHN5cWf5WYHadlwe5t5gBmlCpA9MVmtHdhkYq0iZjmMH6pdbGsrtej3gpIuvLPLqzAeBG4j8iVEFcH3MkeVP2uzus70p+pg1TM/K4anTyE2eSBACKcnvHRRsHWUTE8nATrY0aSphGAJhx5f36yf60QMt70c5EGQfqoME7BR0aI=
+  - secure: 6lb0jn8BJQqDwE0nPnuHTDtMq3Pp8YbQR/L0tt25YhQWoCDDJAwTxuiwEf8oM1Cduq1NG7jM6JsWJlR6Rj9MgxzkFmhmhZgdmh7l/Il81belpLjVEVsUu7vQdwlPxbn0NzdaSKbSzXIz1TxnN/KJMgnkoqZeip6WHY8658KLf3kzMReVLRHAoXbIXbHsRt0/HDBb0+bMlVflcR+qPsWoJy9t4qBPK61i0za219bxc8+nkZwQHezzal+3bFMcC6PgW1h3XI4pzynY1wl8czADDurPzEoEm4LgBrI7+w2dDLyw5/HdhpcC8DZ36+1g9cfIAL6JDJiORRd+0c4s0tHtAKeo/xX96WlCh2r81iTj+aWT8p5viF9Es50nIQ3H4/tVe22wUwHZP2ky796/5KdzqMv8kcF+zrPShF7fY+7Mka5yNOUpZib/0rR/mgs51DhBrCdaEqFlbSqzAH6Q6lC+Z11LZGjujOe8DEXP3Ia/smdQUWf5EB7+rKiHRu7EsPL886IvCbbSa+KHxAwDr6RJmlT/FfaWsDTEcQbLD1TQPBbAcsM2ZG3/EhSKCqwB61cpApGaydNktwtsyFgc3gwtZEQQjohTAuus4Bp/PR+gttowG3qV8AStWuVQrWQKh7jRHLXbLY10nYXgvKK0uK8xKpzdjLec3wEGmvkZ4jBhe90=
+  - secure: 3y58/dogRvfeV8ITCMWKZMsG36whvOc+rc3IDF0g633nkheusqxne5wDuWnYsJSwUJnv7sB7fqvMX8wP1NUax/gudiMQJBzPcMH0LD2CJ0LbZ3DQJsCpeutabVSuszMRmAt8QIB6CncD1r+t4bXgfXjhX5NyZcQ325QYWn8Nwp1ZDIzqEGq1Ybr+u1viuuCD3mM95tG8EyJieqWtUT4+aFd4vbd16FAJ8BNfguJcFkb66J+PrSuDq21prBE/qaR/c/kFrC59e9SWjFK14EB+Y4Ns84s45JhQzu3IA1I/5AKBV6WxAzQyN5YBRJl/EBdopVgHNaqVT3jHPkHKhtYkEMAQ/0BnF4I5SpnaXV7H588IZnoDCbqdAZy8+eolZxLr0KushUYvuwqNKWmZQ8T+Xzuu6ciL7lfLaBoisvpM41EdqvrF8uJOcr+j+66goxDp5F6suKuQ5wB+Zgn2fOl73oeZJpN4LOVp1ukbf7GHNQ7Nq1kP0d9+4fe/wwpklUxV+QSrbXz/VCOuFDrOAcrdWud3hmayzuqkQtIAFi5DZTpgp8ZxlEuRZ9+jrHbjk9bAmemYhqGeh2ZZTvzg9ks9qu43RspWvSNUyP2J3qOgDHVEDctxB7DxZP+GZWJv+IJ1v1t5n83u64ia/fAmNs4tbHhV37s9Ut4pjUrNfdBw7ds=
+before_install:
+- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv -in .env.enc -out .env -d
+- "./bin/waffleiron init"
+install: 
+>>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 before_script:
 - wget https://github.com/lando/lando/releases/download/v3.0.0-rc.16/lando-v3.0.0-rc.16.deb
 - sudo dpkg -i lando-v3.0.0-rc.16.deb
