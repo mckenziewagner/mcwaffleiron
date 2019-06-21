@@ -1,0 +1,8 @@
+recipe: pantheon
+name: mcwaffleiron
+config:
+  framework: wordpress
+  xdebug: false
+  index: true
+  edge: true
+  cache: true

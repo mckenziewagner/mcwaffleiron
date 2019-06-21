@@ -1,0 +1,95 @@
+<?php 
+ $i = 1;
+ ?>
+<section class="home-header h-full">
+ <div class="home-header-wrap relative flex flex-col w-full">
+ <div class="top flex md:flex-row flex-col w-full h-full">
+ <div class="slideshow h-full md:w-3/5 w-full bg-cover bg-no-repeat bg-center flex flex-col justify-end items-center" style="background-image: url(<?php echo static::e(get_field('header_gallery')[0]['url']); ?>);">
+ <button class="text-white hover:text-black modal-toggle bg-transparent hover:bg-white border px-5 py-2 mb-12 border-solid border-white tracking-massive font-sans uppercase text-lg font-light">View Slideshow ></button>
+ <?php  $this->startComponent('components.modal'); ?>
+ <?php  $this->startComponent('components.carousel', [
+ 'id' => 'main-gallery',
+ 'className' => 'my-40',
+ 'data' => [
+ 'loop' => true,
+ 'center' => true,
+ 'items' => 1,
+ ]
+ ]); ?>
+ <?php $__currentLoopData = get_field('header_gallery'); $this->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <div class="image-modal !inline-flex justify-center items-center flex-row">
+ <img src="<?php echo static::e($image['url']); ?>" />
+ </div>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <?php  echo $this->renderComponent(); ?>
+ <?php  echo $this->renderComponent(); ?>
+ </div>
+ <div class="classics-to-go h-full md:w-2/5 w-full bg-cover bg-no-repeat bg-center" style="background-image: url(<?php echo static::e(get_field('header_images')[0]['url']); ?>);">
+ <div class="flex flex-row justify-center items-center w-full h-full">
+ <a href="#" class="md:w-64 md:h-64 w-56 h-56 m-4 flex flex-row justify-center items-center bg-green rounded-full">
+ <div class="md:w-56 md:h-56 h-48 w-48 flex flex-col justify-center items-center rounded-full border-white border-2 border-solid p-5 bg-transparent">
+ <h5 class="font-sans tracking-wide leading-tight font-light uppercase m-0 text-sm text-white text-center leading-none">Order Our</h5>
+ <h4 class="font-sans tracking-wide m-0 text-4xl font-light uppercase text-white text-center leading-hug">Classics To-Go</h4>
+ </div>
+ </a>
+ </div>
+ </div>
+ </div>
+ <div class="bottom flex md:flex-row flex-col w-full h-full">
+ <div class="event-menus h-full md:w-2/5 w-full bg-cover bg-no-repeat bg-center" style="background-image: url(<?php echo static::e(get_field('header_images')[1]['url']); ?>);">
+ <div class="flex flex-row justify-center items-center w-full h-full">
+ <a href="#" class="md:w-64 md:h-64 w-56 h-56 m-4 flex flex-row justify-center items-center bg-yellow rounded-full">
+ <div class="md:w-56 md:h-56 w-48 h-48 flex flex-col justify-center items-center rounded-full border-white border-2 border-solid p-5 bg-transparent">
+ <h5 class="font-sans tracking-wide leading-tight font-light uppercase m-0 text-sm text-white text-center leading-none">See Previous</h5>
+ <h4 class="font-sans tracking-wide m-0 text-4xl font-light uppercase text-white text-center leading-hug">Event Menus</h4>
+ </div>
+ </a>
+ </div>
+ </div>
+ <div class="entire-menu h-full md:w-3/5 w-full bg-orange bg-cover bg-no-repeat bg-center" style="background-image: url(<?php echo static::e(get_field('header_images')[2]['url']); ?>);">
+ <div class="flex justify-center items-center w-full h-full md:p-12 p-5">
+ <a href="#" class="flex flex-col justify-center items-center border-2 border-solid border-white entire-menu-link">
+ <h3 class="font-sans font-medium tracking-wide text-3xl text-white uppercase text-center m-0 leading-tight">View Our</h3>
+ <h2 class="font-sans font-medium tracking-huge text-5xl text-white uppercase text-center m-0 leading-hug">Entire Menu</h2>
+ <p class="m-0 pt-4 font-serif text-white text-center font-medium text-lg md:block hidden">
+ Elit sit sint quibusdam repellendus optio. Reprehenderit ad modi non ex ut mollitia Molestias quis dicta repudiandae facilis quasi Nemo aperiam accusamus sapiente iste laboriosam? Quo eaque ea libero repellat?
+ </p>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ <?php /*
+ <div class="grid relative">
+ <?php $__currentLoopData = get_field('gallery'); $this->addLoop($__currentLoopData); foreach($__currentLoopData as $slide): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <?php if($slide['acf_fc_layout'] === 'image'): ?>
+ <div class="grid-item md:block hidden">
+ <img src="<?php echo static::e($slide['image']['sizes']['720']); ?>" title="<?php echo static::e($slide['image']['title']); ?>" alt="<?php echo static::e($slide['image']['alt']); ?>">
+ </div>
+ <?php endif; ?>
+
+ <?php if($slide['acf_fc_layout'] === 'call_to_action'): ?>
+ <div class="grid-item call-to-action-item">
+ <img src="<?php echo static::e($slide['image']['sizes']['720']); ?>" title="<?php echo static::e($slide['image']['title']); ?>" alt="<?php echo static::e($slide['image']['alt']); ?>">
+ <div style="background-color: <?php echo static::e(hex_to_rgba($slide['style']['overlay_color'], $slide['style']['opacity'] / 100)); ?>);" class="overlay-<?php echo static::e($i); ?> absolute w-full top-0 left-0">
+ </div>
+ <a class="call-to-action-wrap flex justify-center items-center" href="<?php echo static::e($slide['page']); ?>">
+ <div class="call-to-action-slide-<?php echo static::e($i++); ?> bg-white rounded-full">
+ <div class="absolute pin-t pin-l w-full h-full flex flex-col justify-center items-center">
+ <h4 class="text-center font-sans text-xs uppercase text-tan font-light mb-0"><?php echo static::e($slide['sub_heading']); ?></h4>
+ <h3 class="heading font-sans tracking-wide font-normal text-3xl uppercase text-center mb-0 leading-none"><?php echo static::e($slide['heading']); ?></h3>
+ <?php if($i == 3): ?>
+ <p class="extra-info text-center font-serif font-light text-tan text-normal pt-2 mb-0">
+ <?php echo static::e($slide['text']); ?>
+
+ </p>
+ <?php endif; ?>
+ </div>
+ </div>
+ </a>
+ </div>
+ <?php endif; ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+ */ ?>
+</section>
