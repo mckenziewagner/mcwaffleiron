@@ -1,0 +1,55 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.8.1",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+        },
+        "require": {
+          "philippbaschke/acf-pro-installer": ">=1.0",
+          "composer/installers": ">=1.0"
+        }
+      }
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/pantheon-systems/wordpress-composer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "pantheon-systems/wordpress-composer": "*",
+    "wpackagist-plugin/pantheon-advanced-page-cache": "^0.3.0",
+    "philippbaschke/acf-pro-installer": "^1.0",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.7",
+    "wpackagist-plugin/woocommerce": "^3.6",
+    "wpackagist-plugin/acf-to-rest-api": "^3.1",
+    "wpackagist-plugin/woo-permalink-manager": "^2.1",
+    "wpackagist-plugin/classic-editor": "^1.4",
+    "wpackagist-plugin/wp-native-php-sessions": "^0.7.0",
+    "eftec/bladeone": "^3.23",
+    "upstatement/routes": "^0.5.0",
+    "spatie/server-side-rendering": "^0.2.5",
+    "phpunit/phpunit": "^7.5",
+    "helhum/dotenv-connector": "^2.1"
+  },
+  "extra": {
+    "wordpress-install-dir": "web/cms",
+    "installer-paths": {
+      "plugins/{$name}/": ["type:wordpress-plugin"],
+      "themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "helhum/dotenv-connector": {
+      "env-file": ".env"
+    }
+  }
+}

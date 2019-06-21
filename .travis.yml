@@ -1,0 +1,29 @@
+language: php
+php:
+- '7.2'
+- '7.3'
+mysql:
+  database: pantheon
+  username: pantheon
+  encoding: utf8
+env:
+  global:
+  - MOZ_HEADLESS=1
+  - SITE_NAME='McWaffleiron'
+  - PSITE='mcwaffleiron'
+  - PENV='dev'
+before_install:
+- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv -in .env.enc -out .env -d
+- "./bin/waffleiron init"
+before_script:
+- wget https://github.com/lando/lando/releases/download/v3.0.0-rc.16/lando-v3.0.0-rc.16.deb
+- sudo dpkg -i lando-v3.0.0-rc.16.deb
+notifications:
+  email:
+    recipients:
+    - web@mckenziewagner.com
+    on_success: always
+    on_failure: change
+addons:
+  firefox: latest
+  chrome: stable
