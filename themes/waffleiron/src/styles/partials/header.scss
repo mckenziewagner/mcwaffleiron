@@ -1,0 +1,136 @@
+/* stylelint-disable */
+
+.main-header {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  max-height: $nav-height;
+  top: 0;
+  transition: all 300ms ease-in-out;
+
+  @media (max-width: config('screens.sm')) {
+    max-height: 80px;
+  }
+}
+
+.admin .main-header {
+  top: 20px;
+}
+
+.nav {
+  @apply .-mr-5;
+}
+
+.nav .menu-item {
+  @apply .inline-block .px-5 .relative .text-green .py-1;
+
+  .sub-menu {
+    @apply .bg-yellow;
+
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 150px;
+    margin-top: 4px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    margin-left: -1.25rem;
+
+    .menu-item {
+      @apply .block .px-0 .py-1;
+
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+
+      &:hover,
+      &:active {
+        color: config('colors.white');
+        background-color: config('colors.orange');
+
+        a {
+          color: config('colors.white');
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+
+      a {
+        @apply .text-sm .leading-tight;
+        &:after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:active {
+    color: config('colors.white');
+    background-color: config('colors.orange');
+    text-decoration: none;
+
+    > a {
+      color: config('colors.white');
+      text-decoration: none;
+    }
+
+    .sub-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  a {
+    @apply .text-green .uppercase .tracking-wide .text-base .font-sans;
+
+    width: 100%;
+    display: block;
+
+    &:hover,
+    &:active {
+      color: config('colors.white');
+      text-decoration: none;
+    }
+  }
+}
+
+.menu-item-has-children a {
+  cursor: s-resize;
+
+  &:after {
+    content: '‣';
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(90deg);
+    height: 100%;
+    font-size: 20px;
+    margin-left: 5px;
+    padding-left: 4px;
+  }
+}
+
+.mobile-menu {
+  transition: all $anim-time ease-in-out;
+
+  .nav .menu-item {
+    @apply block;
+
+    a {
+      @apply .text-2xl;
+    }
+
+    .sub-menu {
+      transition: all $anim-time ease-in-out;
+      padding-bottom: 0;
+
+      a {
+        @apply .text-xl;
+      }
+    }
+
+    &:hover .sub-menu,
+    &:active .sub-menu {
+      position: relative !important;
+    }
+  }
+}

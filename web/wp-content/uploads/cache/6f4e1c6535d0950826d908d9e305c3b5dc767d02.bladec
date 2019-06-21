@@ -1,0 +1,33 @@
+<div
+ id="<?php echo static::e($id ?? ''); ?>"
+ class="carousel relative w-full h-full"
+ <?php if(isset($data)): ?>
+ <?php $__currentLoopData = $data; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <?php  
+ $datatype = gettype($value);
+ if ($datatype === boolean || $datatype === bool) {
+ if ($value) {
+ $value = 'true';
+ } else {
+ $value = 'false';
+ }
+ }
+ ?>
+ <?php echo static::e('data-'.$key.'='.$value); ?>
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <?php endif; ?>
+>
+ <div class="carousel-wrapper <?php echo static::e($className ?? ''); ?>">
+ <?php echo $slot; ?>
+
+ </div>
+ <div class="carousel-nav w-full">
+ <button class="next">
+ <svg class="<?php echo static::e($navColor ?? 'fill-white'); ?>" viewBox='0 0 27 44'><path d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z'/></svg>
+ </button>
+ <button class="prev">
+ <svg class="<?php echo static::e($navColor ?? 'fill-white'); ?>" viewBox='0 0 27 44'><path d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z'/></svg>
+ </button>
+ </div>
+</div>

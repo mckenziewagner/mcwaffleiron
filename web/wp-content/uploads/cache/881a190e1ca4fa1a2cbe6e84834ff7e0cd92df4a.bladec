@@ -1,0 +1,13 @@
+<section
+ class="page-header bg-center bg-no-repeat bg-cover w-full h-<?php echo static::e($size ?: 'sm'); ?> <?php echo static::e($overlay ?: 'grayscale'); ?> bg-white md:mb-20" 
+ style="background-image: url(<?php echo static::e($url ?: 'not found'); ?>); background-color: <?php echo static::e($overlay ?: 'transparent'); ?>;"
+>
+ <div class="flex flex-col justify-center items-center w-full h-full">
+ <?php if(isset($subtitle)): ?>
+ <h3 class="uppercase font-sans text-3xl text-white tracking-wide m-0 text-center"><?php echo static::e($subtitle); ?></h3>
+ <?php endif; ?>
+ <?php if(isset($title)): ?>
+ <h1 class="uppercase font-sans text-6xl text-white tracking-wide m-0 text-center"><?php echo static::e($title); ?></h1>
+ <?php endif; ?>
+ </div>
+</section>

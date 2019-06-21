@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "allowJs": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "noEmit": true,
+    "removeComments": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ]
+  },
+  "include": [
+    "*.ts",
+    "*.js",
+    "*.tsx",
+    "*.jsx"
+  ],
+  "exclude": [
+    "**/node_modules/**/*",
+    "**/*.spec.ts"
+  ]
+}

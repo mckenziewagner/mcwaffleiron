@@ -1,0 +1,111 @@
+#!/bin/bash
+
+#
+## function defs
+_help() {
+  echo "init       ./bin/waffleiron init"
+  echo "clean      ./bin/waffleiron clean"
+  echo "symlinks   ./bin/waffleiron symlinks"
+  echo "ls         ./bin/waffleiron ls"
+}
+
+if [ "$#" -eq 0 ]
+  then
+    echo "no args supplied \n\n"
+    _help
+fi
+
+_ls() {
+  ls -lah ./
+}
+
+_symlinks() {
+  cp -f ./wp-config-default.php ./web/cms/wp-config.php
+}
+
+clean() {
+  rm -rf vendor node_modules web/cms
+  find . -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete
+}
+
+rm_submodules() {
+  git submodule deinit .
+  git submodule | cut -c43- | while read -r line; do (git rm "$line"); done
+  git config --local -l | grep submodule | sed -e 's/^\(submodule\.[^.]*\)\(.*\)/\1/g' | while read -r line; do (git config --local --remove-section "$line"); done
+  rm .gitmodules
+  rm -rf .git/modules
+}
+
+deploy() {
+  travis encrypt-file .env --add
+  rm_submodules
+  clean
+  composer install --no-dev
+  p i
+  lando push --code=none --database=dev --files=dev
+  git add -A && git commit -m 'deployed from local to pantheon and github'
+  git push origin master
+  git push upstream master
+}
+
+_restart() {
+  lando start
+  pull
+  lando restart 
+}
+
+pull() {
+  lando ssh -c "rm -f /app/database.sql.gz"
+  lando terminus backup:create mcwaffleiron.dev --element=db
+  lando terminus backup:get mcwaffleiron.dev --element=db --to=/app/database.sql.gz
+  lando db-import database.sql.gz
+}
+
+install() {
+  if [[ ($2 -eq "-c") || ($2 -eq "--clean") ]]
+    then
+      rm -rf vendor node_modules web/cms
+  fi
+  composer install
+  pnpm install
+  rm_submodules
+}
+
+# init function... used to be all the commands in composer.json but thats ugly dude
+init() {
+  center 'clean' 12 16
+  clean
+
+  center 'install' 12 16
+  install
+
+  center 'syms and cp' 12 16
+  _symlinks
+
+  center 'syms and cp' 12 16
+  _restart
+}
+
+#
+## do your business here
+while [ "$1" != "" ]; do
+  case "$1" in
+    "init" )
+      init ;;
+    "install" )
+      install ;;
+    "clean" )
+      clean ;;
+    "help" )
+      _help ;;
+    "pull" )
+      pull ;;
+    "restart" )
+      _restart ;;
+    "ls" )
+      _ls ;;
+    * )    
+      echo 'suh?' ;;
+  esac
+  shift
+done

@@ -1,0 +1,37 @@
+{
+    "name": "helhum/dotenv-connector",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "description": "Makes it possible to set environment variables for composer projects.",
+    "keywords": [
+        "composer", "env", "12factor", "dotenv"
+    ],
+    "homepage": "https://github.com/helhum/dotenv-connector",
+    "authors": [
+        {
+            "name": "Helmut Hummel",
+            "email": "info@helhum.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Helhum\\DotEnvConnector\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0 <7.4",
+        "composer-plugin-api": "^1.0",
+        "symfony/dotenv": "^3.3.0 || ^4.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.0.0",
+        "phpunit/phpunit": "^5",
+        "mikey179/vfsStream": "^1.6.0"
+    },
+    "extra": {
+        "class": "Helhum\\DotEnvConnector\\Plugin",
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
