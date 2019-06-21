@@ -13,7 +13,8 @@ env:
   - PSITE='mcwaffleiron'
   - PENV='dev'
 before_install:
-- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv -in .env.enc -out .env -d
+- openssl aes-256-cbc -K $encrypted_10d13d6e58a9_key -iv $encrypted_10d13d6e58a9_iv
+  -in .env.enc -out .env -d
 - "./bin/waffleiron init"
 before_script:
 - wget https://github.com/lando/lando/releases/download/v3.0.0-rc.16/lando-v3.0.0-rc.16.deb
