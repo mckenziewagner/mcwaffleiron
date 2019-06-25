@@ -4,11 +4,7 @@
 
 namespace Composer\Autoload;
 
-<<<<<<< HEAD
-class ComposerStaticInit58c77fdfba5239b9de5e01f94d8b77de
-=======
-class ComposerStaticInit88680f200870c9b10d2fa901fb729c7e
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
+class ComposerStaticInitc4eb550c46b894575cf614da262b0bea
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -61,13 +57,8 @@ class ComposerStaticInit88680f200870c9b10d2fa901fb729c7e
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-<<<<<<< HEAD
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-=======
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
         ),
         'eftec\\bladeone\\' => 
         array (
@@ -690,17 +681,10 @@ class ComposerStaticInit88680f200870c9b10d2fa901fb729c7e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-<<<<<<< HEAD
-            $loader->prefixLengthsPsr4 = ComposerStaticInit58c77fdfba5239b9de5e01f94d8b77de::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit58c77fdfba5239b9de5e01f94d8b77de::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit58c77fdfba5239b9de5e01f94d8b77de::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit58c77fdfba5239b9de5e01f94d8b77de::$classMap;
-=======
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88680f200870c9b10d2fa901fb729c7e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88680f200870c9b10d2fa901fb729c7e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit88680f200870c9b10d2fa901fb729c7e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit88680f200870c9b10d2fa901fb729c7e::$classMap;
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc4eb550c46b894575cf614da262b0bea::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc4eb550c46b894575cf614da262b0bea::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc4eb550c46b894575cf614da262b0bea::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc4eb550c46b894575cf614da262b0bea::$classMap;
 
         }, null, ClassLoader::class);
     }
