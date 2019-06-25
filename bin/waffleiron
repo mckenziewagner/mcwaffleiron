@@ -9,11 +9,7 @@ _help() {
   echo "ls         ./bin/waffleiron ls"
 }
 
-<<<<<<< HEAD
 if [ "$#" -eq 0 ]
-=======
-if [ $# -eq 0 ]
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
   then
     echo "no args supplied \n\n"
     _help
@@ -24,11 +20,7 @@ _ls() {
 }
 
 _symlinks() {
-<<<<<<< HEAD
   cp -f ./wp-config-default.php ./web/cms/wp-config.php
-=======
-  ln -s ./wp-config-default.php ./web/cms/wp-config.php
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 }
 
 clean() {
@@ -45,7 +37,6 @@ rm_submodules() {
 }
 
 deploy() {
-<<<<<<< HEAD
   travis encrypt-file .env --add
   rm_submodules
   clean
@@ -55,17 +46,12 @@ deploy() {
   git add -A && git commit -m 'deployed from local to pantheon and github'
   git push origin master
   git push upstream master
-=======
-  rm_submodules
-  clean
-  composer install --no-dev
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 }
 
 _restart() {
-  lando start
+  lando poweroff
   pull
-  lando restart 
+  lando start 
 }
 
 pull() {
@@ -87,7 +73,6 @@ install() {
 
 # init function... used to be all the commands in composer.json but thats ugly dude
 init() {
-<<<<<<< HEAD
   center 'clean' 12 16
   clean
 
@@ -98,11 +83,6 @@ init() {
   _symlinks
 
   center 'syms and cp' 12 16
-=======
-  clean
-  install
-  _symlinks
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
   _restart
 }
 

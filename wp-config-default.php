@@ -36,36 +36,21 @@ if ( isset( $_SERVER['HTTP_USER_AGENT_HTTPS'] ) && $_SERVER['HTTP_USER_AGENT_HTT
 
 $site_url = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
 define( 'WP_HOME', $site_url );
-<<<<<<< HEAD
 define( 'WP_SITEURL', $site_url );
-=======
-define( 'WP_SITEURL', $site_url . 'cms/' );
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 /*
 * Define wp-content directory outside of WordPress core directory
 */
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/wp-content' );
-<<<<<<< HEAD
 /* define( 'WP_CONTENT_URL',  dirname( __FILE__ ) . '/wp-content' ); */
-=======
-/* define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' ); */
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 
 /**
  * Composer modifications
  */
 // Set root path.
-<<<<<<< HEAD
 $root_path = $_SERVER['LANDO_APP_ROOT'];
 
 // Include the Composer autoload file.
 require_once( $root_path . '/vendor/autoload.php' );
-=======
-$root_path = realpath( __DIR__ . '/../../..' );
-
-// Include the Composer autoload file.
-require_once( $root_path . 'vendor/autoload.php' );
->>>>>>> bf8c22a7e15ccd9a63f2bf634d5ada70250ea40f
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
