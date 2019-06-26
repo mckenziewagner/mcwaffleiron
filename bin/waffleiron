@@ -9,7 +9,7 @@ _ls() {
 
 _link() {
   cd $DIR
-  ln -sf wp-config-default web/cms/wp-config.php wp-config-default.php
+  ln -sf web/cms/wp-config.php wp-config-default.php
 }
 
 clean() {
@@ -47,16 +47,41 @@ _restart() {
 
 pull() {
   cd $DIR
-  lando ssh -c "rm -f /app/database.sql.gz"
-  lando terminus backup:create mcwaffleiron.dev --element=db
-  lando terminus backup:get mcwaffleiron.dev --element=db --to=/app/database.sql.gz
-  lando db-import database.sql.gz && \
-  rm -f database.sql.gz
+
+  if [ "$#" -ne 1 ]
+    then
+      pantheon_site="$(lando ssh -s appserver -c env | grep TERMINUS_SITE | cut -d '=' --complement -f 1)"
+      pantheon_env="$(lando ssh -s appserver -c env | grep TERMINUS_ENV | cut -d '=' --complement -f 1)"
+    else
+      default_site="$arg1"
+      default_env="$arg2"
+  fi
+
+  site="$pantheon_site" || site="$default_site"
+  env="$pantheon_env" || env="$default_env"
+  
+  echo $site
+  echo $env
+
+  # lando ssh -c "rm -f /app/database.sql.gz"
+  # lando terminus backup:create $site.$env --element=db
+  # lando terminus backup:get $site.$env --element=db --to=/app/database.sql.gz
+  # lando db-import database.sql.gz && \
+  # lando ssh -c "rm -rf /tmp/files.tar.gz"
+  # lando -c "rm -f /app/database.sql.gz"
+
+  # lando ssh -c "rm -f /tmp/files.sql.gz"
+  # lando terminus backup:create $site.$env --element=files
+  # lando terminus backup:get $site.$env --element=files --to=/tmp/files.tar.gz
+  # lando ssh -c "mkdir -p /app/wp-content/uploads"
+  # lando ssh -c "tar -xzvf /tmp/files.tar.gz -C /app/wp-content/uploads --strip-components 1"
+  # lando ssh -c "rm -rf /tmp/files.tar.gz"
 }
 
 _rebuild() {
   cd $DIR
-  lando rebuild -y
+  lando destroy -y
+  lando start
   pull
 }
 
@@ -84,6 +109,9 @@ init() {
 
   center 'restart' 12 16
   _restart
+
+  center 'clear/flush cache' 12 16
+  cc
 }
 
 cc() {
