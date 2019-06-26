@@ -1,44 +1,35 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#
-## function defs
-_help() {
-  echo "init       ./bin/waffleiron init"
-  echo "clean      ./bin/waffleiron clean"
-  echo "symlinks   ./bin/waffleiron symlinks"
-  echo "ls         ./bin/waffleiron ls"
-}
-
-if [ "$#" -eq 0 ]
-  then
-    echo "no args supplied \n\n"
-    _help
-fi
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd )"
 
 _ls() {
+  cd $DIR
   ls -lah ./
 }
 
-_symlinks() {
-  cp -f ./wp-config-default.php ./web/cms/wp-config.php
+_link() {
+  cd $DIR
+  ln -sf wp-config-default web/cms/wp-config.php wp-config-default.php
 }
 
 clean() {
+  cd $DIR
   rm -rf vendor node_modules web/cms
   find . -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete
 }
 
 rm_submodules() {
-  git submodule deinit .
-  git submodule | cut -c43- | while read -r line; do (git rm "$line"); done
+  cd $DIR
+  git submodule deinit 
+  git submodule | cut -c43- | while read -r line; do (git rm -f "$line"); done
   git config --local -l | grep submodule | sed -e 's/^\(submodule\.[^.]*\)\(.*\)/\1/g' | while read -r line; do (git config --local --remove-section "$line"); done
-  rm .gitmodules
+  rm -f .gitmodules
   rm -rf .git/modules
 }
 
 deploy() {
+  cd $DIR
   travis encrypt-file .env --add
-  rm_submodules
   clean
   composer install --no-dev
   p i
@@ -49,26 +40,29 @@ deploy() {
 }
 
 _restart() {
+  cd $DIR
   lando poweroff
-  pull
   lando start 
 }
 
 pull() {
+  cd $DIR
   lando ssh -c "rm -f /app/database.sql.gz"
   lando terminus backup:create mcwaffleiron.dev --element=db
   lando terminus backup:get mcwaffleiron.dev --element=db --to=/app/database.sql.gz
-  lando db-import database.sql.gz
+  lando db-import database.sql.gz && \
+  rm -f database.sql.gz
+}
+
+_rebuild() {
+  cd $DIR
+  lando rebuild -y
+  pull
 }
 
 install() {
-  if [[ ($2 -eq "-c") || ($2 -eq "--clean") ]]
-    then
-      rm -rf vendor node_modules web/cms
-  fi
   composer install
   pnpm install
-  rm_submodules
 }
 
 # init function... used to be all the commands in composer.json but thats ugly dude
@@ -76,36 +70,75 @@ init() {
   center 'clean' 12 16
   clean
 
+  center 'remove submods' 12 16
+  rm_submodules
+
   center 'install' 12 16
   install
 
   center 'syms and cp' 12 16
-  _symlinks
+  _links
 
-  center 'syms and cp' 12 16
+  center 'pull' 12 16
+  pull
+
+  center 'restart' 12 16
   _restart
 }
 
+cc() {
+  lando wp cache flush || lando drush cc all
+}
+
+_help() {
+  echo "help       waffleiron help"
+  echo "init       waffleiron init"
+  echo "install    waffleiron install"
+  echo "restart    waffleiron restart"
+  echo "cc         waffleiron cc"
+  echo "rebuild    waffleiron rebuild"
+  echo "clean      waffleiron clean"
+  echo "pull       waffleiron pull"
+  echo "link       waffleiron link"
+  echo "deploy     waffleiron deploy"
+  echo "ls         waffleiron ls"
+}
+
+if [ "$#" -eq 0 ]
+  then
+    printf "suh? no args supplied\n"
+    printf "\nwaffleiron dir:\n$DIR\n\n"
+    _help
+fi
 #
 ## do your business here
-while [ "$1" != "" ]; do
-  case "$1" in
+for var in "$@"
+do
+  case "$@" in
+    "help" )
+      _help ;;
     "init" )
       init ;;
     "install" )
       install ;;
-    "clean" )
-      clean ;;
-    "help" )
-      _help ;;
-    "pull" )
-      pull ;;
     "restart" )
       _restart ;;
+    "cc" )
+      cc ;;
+    "rebuild" )
+      _rebuild ;;
+    "clean" )
+      clean ;;
+    "pull" )
+      pull ;;
+    "link" )
+      _link ;;
+    "deploy" )
+      _deploy ;;
     "ls" )
       _ls ;;
     * )    
-      echo 'suh?' ;;
+      printf "suh?\n$DIR" ;;
   esac
   shift
 done
