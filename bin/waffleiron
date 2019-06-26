@@ -4,17 +4,27 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd )"
 
 _ls() {
   cd $DIR
-  ls -lah ./
+  printf "\n path: $DIR \n\n"
+  ls -la
+}
+
+paths() {
+  lando ssh -s appserver -c env | grep "PATH" | cut -d '=' --complement -f 1 | tr ':' '\n'
+}
+
+_env() {
+  lando ssh -s appserver -c env | grep ""
 }
 
 _link() {
-  ln -sf $DIR/wp-config-default.php $DIR/web/cms/wp-config.php
+  cp -f "$DIR/wp-config.php" "$DIR/web/cms/wp-config.php"
 }
 
 clean() {
   cd $DIR
-  rm -rf vendor node_modules web/cms
+  rm -rfv vendor node_modules web/cms
   find . -maxdepth 1 ! -name util ! -name index.php -name plugins/. -delete
+  printf 'clean dat ish up'
 }
 
 rm_submodules() {
@@ -22,8 +32,8 @@ rm_submodules() {
   git submodule deinit --all
   git submodule | cut -c43- | while read -r line; do (git rm -f "$line"); done
   git config --local -l | grep submodule | sed -e 's/^\(submodule\.[^.]*\)\(.*\)/\1/g' | while read -r line; do (git config --local --remove-section "$line"); done
-  rm -f .gitmodules
-  rm -rf .git/modules
+  rm -fv .gitmodules
+  rm -rfv .git/modules
 }
 
 deploy() {
@@ -39,9 +49,7 @@ deploy() {
 }
 
 _restart() {
-  cd $DIR
-  lando poweroff
-  lando start 
+  cd $DIR && lando poweroff && lando start 
 }
 
 pull() {
@@ -50,21 +58,22 @@ pull() {
   site="$(./bin/env 'SITE_NAME')" || site="$(lando ssh -s appserver -c env | grep TERMINUS_SITE | cut -d '=' --complement -f 1)"
   env="$(./bin/env 'SITE_ENV')" || env="$(lando ssh -s appserver -c env | grep TERMINUS_ENV | cut -d '=' --complement -f 1)"
   
-  printf "pulling from $site.$env"
+  printf "\npulling from $site.$env\n"
 
   lando ssh -c "rm -f /app/database.sql.gz"
   lando terminus backup:create $site.$env --element=db
   lando terminus backup:get $site.$env --element=db --to=/app/database.sql.gz
   lando db-import database.sql.gz && \
-  lando ssh -c "rm -rf /tmp/files.tar.gz"
   lando ssh -c "rm -f /app/database.sql.gz"
+  printf "imported db"
 
   lando ssh -c "rm -f /tmp/files.sql.gz"
   lando terminus backup:create $site.$env --element=files
   lando terminus backup:get $site.$env --element=files --to=/tmp/files.tar.gz
   lando ssh -c "mkdir -p /app/wp-content/uploads"
   lando ssh -c "tar -xzvf /tmp/files.tar.gz -C /app/wp-content/uploads --strip-components 1"
-  lando ssh -c "rm -rf /tmp/files.tar.gz"
+  lando ssh -c "rm -f /tmp/files.sql.gz"
+  printf "imported files"
 }
 
 _rebuild() {
@@ -90,21 +99,23 @@ init() {
   center 'install' 12 16
   install
 
+  sleep 1
+
   center 'syms and cp' 12 16
   _links
 
   center 'pull' 12 16
   pull
 
-  center 'restart' 12 16
-  _restart
+  # center 'restart' 12 16
+  # _restart
 
   center 'clear/flush cache' 12 16
   cc
 }
 
 cc() {
-  lando wp cache flush || lando drush cc all
+  lando ssh -c "wp cache flush --path=/app/web/cms"
 }
 
 _help() {
@@ -152,8 +163,10 @@ do
       _link ;;
     "deploy" )
       _deploy ;;
+    "paths" )
+      paths ;;
     "env" )
-      env ;;
+      _env ;;
     "ls" )
       _ls ;;
     * )    
