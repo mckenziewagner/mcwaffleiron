@@ -57,7 +57,7 @@ pull() {
   lando terminus backup:get $site.$env --element=db --to=/app/database.sql.gz
   lando db-import database.sql.gz && \
   lando ssh -c "rm -rf /tmp/files.tar.gz"
-  lando -c "rm -f /app/database.sql.gz"
+  lando ssh -c "rm -f /app/database.sql.gz"
 
   lando ssh -c "rm -f /tmp/files.sql.gz"
   lando terminus backup:create $site.$env --element=files
